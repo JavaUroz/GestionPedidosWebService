@@ -26,7 +26,7 @@
                 Return
             End If
         Next
-        Dim childForm As New DGVClientes
+        Dim childForm As New DGVProductos
         childForm.Text = "Productos"
         childForm.MdiParent = Me
         childForm.Dock = DockStyle.Fill

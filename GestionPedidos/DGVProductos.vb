@@ -8,7 +8,7 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient
+    Dim ws As ServiceReferenceGestionPedidos.WSGestionPedidosSoapChannel
 
 
 
