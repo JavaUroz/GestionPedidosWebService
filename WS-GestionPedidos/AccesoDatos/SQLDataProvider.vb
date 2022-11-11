@@ -6,7 +6,7 @@ Namespace AccesoDatos
     Public Class SQLDataProvider
         Dim query As String = ""
         Dim result As Integer = -99
-        Dim cnn As New SqlConnection("Data Source=DESKTOP-23SOU87\SQLEXPRESS;Initial Catalog=Almacen;Integrated Security=SSPI")
+        Dim cnn As New SqlConnection("Data Source=JAVIER-UROZ\SQLEXPRESS;Initial Catalog=Almacen;Integrated Security=SSPI")
 #Region "Cliente"
         Public Function Cliente_Add(ByVal objCliente As ClienteE) As Integer
             query = String.Format("INSERT INTO [dbo].[Clientes]

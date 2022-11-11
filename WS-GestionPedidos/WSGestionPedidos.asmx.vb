@@ -12,11 +12,6 @@ Imports WS_GestionPedidos.Negocios
 <ToolboxItem(False)> _
 Public Class WSGestionPedidos
     Inherits System.Web.Services.WebService
-
-    <WebMethod>
-    Public Function HelloWorld() As String
-        Return "Hola a todos"
-    End Function
 #Region "Clientes"
     <WebMethod>
     Public Function Cliente_Agregar(ObjCliente As ClienteE) As Integer
