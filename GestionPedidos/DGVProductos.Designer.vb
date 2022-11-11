@@ -33,18 +33,18 @@ Partial Class DGVProductos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txt_ = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txt_PrecioCompra = New System.Windows.Forms.TextBox()
+        Me.txt_PrecioVenta = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnExportar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnModificar = New System.Windows.Forms.Button()
-        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btn_Exportar = New System.Windows.Forms.Button()
+        Me.btn_Eliminar = New System.Windows.Forms.Button()
+        Me.btn_Modificar = New System.Windows.Forms.Button()
+        Me.btn_Agregar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.cb_UnidadMedida = New System.Windows.Forms.ComboBox()
+        Me.btn_Aceptar = New System.Windows.Forms.Button()
+        Me.btn_Cancelar = New System.Windows.Forms.Button()
         CType(Me.dgv_Productos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -53,7 +53,7 @@ Partial Class DGVProductos
         'dtpFechaActPrecioVenta
         '
         Me.dtpFechaActPrecioVenta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaActPrecioVenta.Location = New System.Drawing.Point(377, 85)
+        Me.dtpFechaActPrecioVenta.Location = New System.Drawing.Point(377, 112)
         Me.dtpFechaActPrecioVenta.Name = "dtpFechaActPrecioVenta"
         Me.dtpFechaActPrecioVenta.Size = New System.Drawing.Size(112, 20)
         Me.dtpFechaActPrecioVenta.TabIndex = 0
@@ -79,7 +79,7 @@ Partial Class DGVProductos
         'dtpFechaActPrecioCompra
         '
         Me.dtpFechaActPrecioCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaActPrecioCompra.Location = New System.Drawing.Point(377, 115)
+        Me.dtpFechaActPrecioCompra.Location = New System.Drawing.Point(377, 82)
         Me.dtpFechaActPrecioCompra.Name = "dtpFechaActPrecioCompra"
         Me.dtpFechaActPrecioCompra.Size = New System.Drawing.Size(112, 20)
         Me.dtpFechaActPrecioCompra.TabIndex = 0
@@ -142,19 +142,19 @@ Partial Class DGVProductos
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Precio de Compra:"
         '
-        'txt_
+        'txt_PrecioCompra
         '
-        Me.txt_.Location = New System.Drawing.Point(108, 85)
-        Me.txt_.Name = "txt_"
-        Me.txt_.Size = New System.Drawing.Size(128, 20)
-        Me.txt_.TabIndex = 11
+        Me.txt_PrecioCompra.Location = New System.Drawing.Point(108, 85)
+        Me.txt_PrecioCompra.Name = "txt_PrecioCompra"
+        Me.txt_PrecioCompra.Size = New System.Drawing.Size(128, 20)
+        Me.txt_PrecioCompra.TabIndex = 11
         '
-        'TextBox5
+        'txt_PrecioVenta
         '
-        Me.TextBox5.Location = New System.Drawing.Point(107, 115)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(128, 20)
-        Me.TextBox5.TabIndex = 13
+        Me.txt_PrecioVenta.Location = New System.Drawing.Point(107, 115)
+        Me.txt_PrecioVenta.Name = "txt_PrecioVenta"
+        Me.txt_PrecioVenta.Size = New System.Drawing.Size(128, 20)
+        Me.txt_PrecioVenta.TabIndex = 13
         '
         'Label7
         '
@@ -167,10 +167,10 @@ Partial Class DGVProductos
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnExportar)
-        Me.GroupBox1.Controls.Add(Me.btnEliminar)
-        Me.GroupBox1.Controls.Add(Me.btnModificar)
-        Me.GroupBox1.Controls.Add(Me.btnAgregar)
+        Me.GroupBox1.Controls.Add(Me.btn_Exportar)
+        Me.GroupBox1.Controls.Add(Me.btn_Eliminar)
+        Me.GroupBox1.Controls.Add(Me.btn_Modificar)
+        Me.GroupBox1.Controls.Add(Me.btn_Agregar)
         Me.GroupBox1.Controls.Add(Me.dgv_Productos)
         Me.GroupBox1.Location = New System.Drawing.Point(23, 12)
         Me.GroupBox1.Name = "GroupBox1"
@@ -179,48 +179,48 @@ Partial Class DGVProductos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Consulta"
         '
-        'btnExportar
+        'btn_Exportar
         '
-        Me.btnExportar.Location = New System.Drawing.Point(590, 316)
-        Me.btnExportar.Name = "btnExportar"
-        Me.btnExportar.Size = New System.Drawing.Size(75, 23)
-        Me.btnExportar.TabIndex = 6
-        Me.btnExportar.Text = "Exportar"
-        Me.btnExportar.UseVisualStyleBackColor = True
+        Me.btn_Exportar.Location = New System.Drawing.Point(590, 316)
+        Me.btn_Exportar.Name = "btn_Exportar"
+        Me.btn_Exportar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Exportar.TabIndex = 6
+        Me.btn_Exportar.Text = "Exportar"
+        Me.btn_Exportar.UseVisualStyleBackColor = True
         '
-        'btnEliminar
+        'btn_Eliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(178, 316)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEliminar.TabIndex = 5
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
+        Me.btn_Eliminar.Location = New System.Drawing.Point(178, 316)
+        Me.btn_Eliminar.Name = "btn_Eliminar"
+        Me.btn_Eliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Eliminar.TabIndex = 5
+        Me.btn_Eliminar.Text = "Eliminar"
+        Me.btn_Eliminar.UseVisualStyleBackColor = True
         '
-        'btnModificar
+        'btn_Modificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(96, 316)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(75, 23)
-        Me.btnModificar.TabIndex = 4
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = True
+        Me.btn_Modificar.Location = New System.Drawing.Point(96, 316)
+        Me.btn_Modificar.Name = "btn_Modificar"
+        Me.btn_Modificar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Modificar.TabIndex = 4
+        Me.btn_Modificar.Text = "Modificar"
+        Me.btn_Modificar.UseVisualStyleBackColor = True
         '
-        'btnAgregar
+        'btn_Agregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(14, 316)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAgregar.TabIndex = 3
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
+        Me.btn_Agregar.Location = New System.Drawing.Point(14, 316)
+        Me.btn_Agregar.Name = "btn_Agregar"
+        Me.btn_Agregar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Agregar.TabIndex = 3
+        Me.btn_Agregar.Text = "Agregar"
+        Me.btn_Agregar.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.cb_UnidadMedida)
-        Me.GroupBox2.Controls.Add(Me.TextBox5)
+        Me.GroupBox2.Controls.Add(Me.txt_PrecioVenta)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.txt_)
+        Me.GroupBox2.Controls.Add(Me.txt_PrecioCompra)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -238,24 +238,6 @@ Partial Class DGVProductos
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Producto"
         '
-        'btnAceptar
-        '
-        Me.btnAceptar.Location = New System.Drawing.Point(542, 544)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAceptar.TabIndex = 16
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(623, 544)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 17
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
         'cb_UnidadMedida
         '
         Me.cb_UnidadMedida.FormattingEnabled = True
@@ -264,13 +246,31 @@ Partial Class DGVProductos
         Me.cb_UnidadMedida.Size = New System.Drawing.Size(121, 21)
         Me.cb_UnidadMedida.TabIndex = 14
         '
+        'btn_Aceptar
+        '
+        Me.btn_Aceptar.Location = New System.Drawing.Point(542, 544)
+        Me.btn_Aceptar.Name = "btn_Aceptar"
+        Me.btn_Aceptar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Aceptar.TabIndex = 16
+        Me.btn_Aceptar.Text = "Aceptar"
+        Me.btn_Aceptar.UseVisualStyleBackColor = True
+        '
+        'btn_Cancelar
+        '
+        Me.btn_Cancelar.Location = New System.Drawing.Point(623, 544)
+        Me.btn_Cancelar.Name = "btn_Cancelar"
+        Me.btn_Cancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Cancelar.TabIndex = 17
+        Me.btn_Cancelar.Text = "Cancelar"
+        Me.btn_Cancelar.UseVisualStyleBackColor = True
+        '
         'DGVProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(733, 579)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.btn_Cancelar)
+        Me.Controls.Add(Me.btn_Aceptar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "DGVProductos"
@@ -294,16 +294,16 @@ Partial Class DGVProductos
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txt_ As TextBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txt_PrecioCompra As TextBox
+    Friend WithEvents txt_PrecioVenta As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents btnEliminar As Button
-    Friend WithEvents btnModificar As Button
-    Friend WithEvents btnAgregar As Button
-    Friend WithEvents btnExportar As Button
+    Friend WithEvents btn_Eliminar As Button
+    Friend WithEvents btn_Modificar As Button
+    Friend WithEvents btn_Agregar As Button
+    Friend WithEvents btn_Exportar As Button
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents btnAceptar As Button
-    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btn_Aceptar As Button
+    Friend WithEvents btn_Cancelar As Button
     Friend WithEvents cb_UnidadMedida As ComboBox
 End Class
