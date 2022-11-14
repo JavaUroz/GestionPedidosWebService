@@ -31,7 +31,7 @@ Public Class DGVClientes
         txt_Email.Text = ""
         Try
             Dim ds As New DataSet
-            ds = ws.Cliente_ObtenerTodo()
+            ds = ws.Cliente_ObtenerTodo
             dgv_Clientes.DataSource = ds.Tables(0).DefaultView
         Catch ex As Exception
             msj = MessageBox.Show(ex, MessageBoxButtons.OK)

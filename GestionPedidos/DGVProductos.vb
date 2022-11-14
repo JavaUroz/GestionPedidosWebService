@@ -8,18 +8,19 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As ServiceReferenceGP.WSGestionPedidosSoapClient
+    Dim ws As New ServiceReferenceGP.WSGestionPedidosSoapClient
 
     Private Sub DGVProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicializarComponentes()
         dgv_Productos.ReadOnly = True
         dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv_Productos.RowHeadersVisible = False
-        dgv_Productos.Columns(0).HeaderText = "Código"
-        dgv_Productos.Columns(1).HeaderText = "Descipción"
-        dgv_Productos.Columns(2).HeaderText = "U.M."
-        dgv_Productos.Columns(3).HeaderText = "Precio Venta"
-        dgv_Productos.Columns(4).HeaderText = "Precio Compra"
+        dgv_Productos.Columns(0).Visible = False
+        dgv_Productos.Columns(1).HeaderText = "Código"
+        dgv_Productos.Columns(2).HeaderText = "Descipción"
+        dgv_Productos.Columns(3).HeaderText = "U.M."
+        dgv_Productos.Columns(4).HeaderText = "Precio Venta"
+        dgv_Productos.Columns(5).HeaderText = "Precio Compra"
     End Sub
     Private Sub InicializarComponentes()
         txt_Codigo.Text = ""
@@ -31,7 +32,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Text = ""
         Try
             Dim ds As New DataSet
-            ds = ws.Producto_ObtenerTodo()
+            ds = ws.Producto_ObtenerTodo
             dgv_Productos.DataSource = ds.Tables(0).DefaultView
         Catch ex As Exception
             msj = MessageBox.Show(ex, MessageBoxButtons.OK)
