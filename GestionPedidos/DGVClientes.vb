@@ -85,68 +85,7 @@ Public Class DGVClientes
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub btn_Exportar_Click(sender As Object, e As EventArgs) Handles btn_Exportar.Click
-        Try
-            copiarAlPortapapeles()
-            Dim objLibroExcel As Workbook
-            Dim objLibrosExcel As Workbooks
-            Dim objHojaExcel As Worksheet
-            Dim objHojasExcel As Sheets
-            Dim objExcel As Application
-            objExcel = New Application
-            objExcel.Visible = False
-            objExcel.DisplayAlerts = False
-            objLibroExcel = CType(objExcel.Workbooks.Add(), Workbook)
-            objLibrosExcel = objExcel.Workbooks
-            objHojasExcel = objLibroExcel.Worksheets
-            objLibroExcel = objLibrosExcel.Item(1)
-            objHojaExcel = CType(objHojasExcel.Item(1), Worksheet)
-            objHojaExcel.Name = "Clientes"
-            Dim CR As Range = objHojaExcel.Cells(1, 1)
-            CR.Select()
-            objHojaExcel.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, True)
-            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Color = 0
-            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.LineStyle = XlLineStyle.xlContinuous
-            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Weight = 2
-            objHojaExcel.Columns.AutoFit()
-            Dim f As New SaveFileDialog
-            Dim camino As String = ""
-            Dim archivo As String
-            archivo = ("Clientes " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xls")
-            f.Filter = "Excel Files|*.xlsx;*.xls;"
-            f.FileName = archivo
-            If DialogResult.OK = f.ShowDialog() Then
-                camino = f.FileName
-                objLibroExcel.SaveAs(camino, XlFileFormat.xlWorkbookDefault, System.Reflection.Missing.Value, System.Reflection.Missing.Value, False, False, XlSaveAsAccessMode.xlNoChange, False, False, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value)
-                dgv_Clientes.DataSource = Nothing
-                btn_Exportar.Enabled = False
-                Process.Start("explorer.exe", "/select," & camino)
-            End If
-            objLibroExcel.Close()
-            objExcel.Quit()
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(objLibroExcel)
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(objHojaExcel)
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(objExcel)
-            objLibroExcel = Nothing
-            objExcel = Nothing
-        Catch ex As Exception
-            Utilidades.ShowBalloon(btn_Exportar, "Error", "No se pudo exportar clientes", ToolTipIcon.Error)
-        End Try
-        InicializarComponentes()
-    End Sub
-    Private Sub copiarAlPortapapeles()
-        Try
-            dgv_Clientes.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
-            dgv_Clientes.MultiSelect = True
-            dgv_Clientes.SelectAll()
-            Dim dataObj As DataObject = dgv_Clientes.GetClipboardContent()
-            If dataObj IsNot DBNull.Value Then
-                Clipboard.SetDataObject(dataObj)
-            End If
-        Catch ex As Exception
-            msj = MessageBox.Show("Error", ex.Message, MessageBoxButtons.OKCancel)
-        End Try
-    End Sub
+
     Private Sub btn_Agregar_Click(sender As Object, e As EventArgs) Handles btn_Agregar.Click
         ActivarControlesCliente()
         DesactivarControlesDGV()
@@ -245,5 +184,68 @@ Public Class DGVClientes
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
             Modificar(dgv_Clientes.Rows(e.RowIndex).Cells("clId").Value.ToString, e.RowIndex)
         End If
+    End Sub
+
+    Private Sub btn_Exportar_Click(sender As Object, e As EventArgs) Handles btn_Exportar.Click
+        Try
+            copiarAlPortapapeles()
+            Dim objLibroExcel As Workbook
+            Dim objLibrosExcel As Workbooks
+            Dim objHojaExcel As Worksheet
+            Dim objHojasExcel As Sheets
+            Dim objExcel As Application
+            objExcel = New Application
+            objExcel.Visible = False
+            objExcel.DisplayAlerts = False
+            objLibroExcel = CType(objExcel.Workbooks.Add(), Workbook)
+            objLibrosExcel = objExcel.Workbooks
+            objHojasExcel = objLibroExcel.Worksheets
+            objLibroExcel = objLibrosExcel.Item(1)
+            objHojaExcel = CType(objHojasExcel.Item(1), Worksheet)
+            objHojaExcel.Name = "Clientes"
+            Dim CR As Range = objHojaExcel.Cells(1, 1)
+            CR.Select()
+            objHojaExcel.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, True)
+            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Color = 0
+            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.LineStyle = XlLineStyle.xlContinuous
+            objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Weight = 2
+            objHojaExcel.Columns.AutoFit()
+            Dim f As New SaveFileDialog
+            Dim camino As String = ""
+            Dim archivo As String
+            archivo = ("Clientes " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xls")
+            f.Filter = "Excel Files|*.xlsx;*.xls;"
+            f.FileName = archivo
+            If DialogResult.OK = f.ShowDialog() Then
+                camino = f.FileName
+                objLibroExcel.SaveAs(camino, XlFileFormat.xlWorkbookDefault, System.Reflection.Missing.Value, System.Reflection.Missing.Value, False, False, XlSaveAsAccessMode.xlNoChange, False, False, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value)
+                dgv_Clientes.DataSource = Nothing
+                btn_Exportar.Enabled = False
+                Process.Start("explorer.exe", "/select," & camino)
+            End If
+            objLibroExcel.Close()
+            objExcel.Quit()
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objLibroExcel)
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objHojaExcel)
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objExcel)
+            objLibroExcel = Nothing
+            objExcel = Nothing
+        Catch ex As Exception
+            Utilidades.ShowBalloon(btn_Exportar, "Error", "No se pudo exportar clientes", ToolTipIcon.Error)
+        End Try
+        InicializarComponentes()
+    End Sub
+    Private Sub copiarAlPortapapeles()
+        Try
+            dgv_Clientes.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
+            dgv_Clientes.MultiSelect = True
+            dgv_Clientes.SelectAll()
+            Dim dataObj As DataObject = dgv_Clientes.GetClipboardContent()
+            If dataObj IsNot DBNull.Value Then
+                Clipboard.SetDataObject(dataObj)
+            End If
+        Catch ex As Exception
+            msj = MessageBox.Show("Error", ex.Message, MessageBoxButtons.OKCancel)
+        End Try
     End Sub
 End Class

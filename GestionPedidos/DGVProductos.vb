@@ -1,4 +1,4 @@
-﻿Imports GestionPedidos.ServiceReferenceGestionPedidos
+﻿Imports GestionPedidos.ServiceReferenceGP
 Imports Microsoft.Office.Interop.Excel
 Public Class DGVProductos
     Dim oProducto As New ProductoE
@@ -8,24 +8,7 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient
-
-
-
-    Private Sub CargarCombos()
-        Dim ds As New DataSet
-        Try
-            ds = ws.UnidadMedida_ObtenerTodo()
-            If ds IsNot Nothing Then
-                cb_UnidadMedida.DataSource = ds.Tables(0)
-                cb_UnidadMedida.DisplayMember = "Descripción"
-                cb_UnidadMedida.ValueMember = "Codigo"
-                cb_UnidadMedida.SelectedValue = "07"
-            End If
-        Catch ex As Exception
-            Utilidades.ShowBalloon(cb_UnidadMedida, "Atención", "No se pudieron cargar las unidades de medidas", ToolTipIcon.Error)
-        End Try
-    End Sub
+    Dim ws As ServiceReferenceGP.WSGestionPedidosSoapClient
 
     Private Sub DGVProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicializarComponentes()
@@ -48,7 +31,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Text = ""
         Try
             Dim ds As New DataSet
-            ds = ws.Producto_ObtenerTodo
+            ds = ws.Producto_ObtenerTodo()
             dgv_Productos.DataSource = ds.Tables(0).DefaultView
         Catch ex As Exception
             msj = MessageBox.Show(ex, MessageBoxButtons.OK)
@@ -75,6 +58,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Enabled = True
         btn_Aceptar.Enabled = True
         btn_Cancelar.Enabled = True
+        CargarCombos()
     End Sub
     Private Sub DesactivarControlesDGV()
         btn_Agregar.Enabled = False
@@ -85,6 +69,21 @@ Public Class DGVProductos
         btn_Agregar.Enabled = True
         btn_Modificar.Enabled = True
         btn_Eliminar.Enabled = True
+        CargarCombos()
+    End Sub
+    Private Sub CargarCombos()
+        Dim ds As New DataSet
+        Try
+            ds = ws.UnidadMedida_ObtenerTodo()
+            If ds IsNot Nothing Then
+                cb_UnidadMedida.DataSource = ds.Tables(0)
+                cb_UnidadMedida.DisplayMember = "Descripción"
+                cb_UnidadMedida.ValueMember = "Codigo"
+                cb_UnidadMedida.SelectedValue = "07"
+            End If
+        Catch ex As Exception
+            Utilidades.ShowBalloon(cb_UnidadMedida, "Atención", "No se pudieron cargar las unidades de medidas", ToolTipIcon.Error)
+        End Try
     End Sub
     Public Sub Modificar(ByVal idProducto As Integer, ByVal posicion As Integer)
         Try
