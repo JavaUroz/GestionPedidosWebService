@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="Msf8t/tmg7U13uT1oplzQwB7qgyGU/4wrBD9LwgTEUg=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="LB8aJZeepIDJxChEqTGGUeotx4v+BZ4jyF6ogQ9fTmw=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WSGestionPedidosSoap">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSGestionPedidosSoap" contract="ServiceReferenceGestionPedidos.WSGestionPedidosSoap" bindingType="basicHttpBinding" address="http://localhost:65167/WSGestionPedidos.asmx" bindingConfiguration="WSGestionPedidosSoap">
+    <endpoint name="WSGestionPedidosSoap" contract="ServiceReferenceGP.WSGestionPedidosSoap" bindingType="basicHttpBinding" address="http://localhost:65167/WSGestionPedidos.asmx" bindingConfiguration="WSGestionPedidosSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:65167/WSGestionPedidos.asmx</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>WSGestionPedidosSoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ServiceReferenceGestionPedidos.WSGestionPedidosSoap</serializedValue>
+          <serializedValue>ServiceReferenceGP.WSGestionPedidosSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

@@ -85,7 +85,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ServiceReferenceGestionPedidos\Reference.vb">
+    <Compile Include="Connected Services\ServiceReferenceGP\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -144,13 +144,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\GestionPedidos.ServiceReferenceGestionPedidos.ClienteE.datasource">
+    <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.ClienteE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\GestionPedidos.ServiceReferenceGestionPedidos.ProductoE.datasource">
+    <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.ProductoE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\WSGestionPedidos.wsdl" />
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.wsdl" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -171,25 +171,25 @@
     <Folder Include="utilidades_ver\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReferenceGestionPedidos\" />
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\WSGestionPedidos.disco" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceGP\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferenceGP\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGestionPedidos\Reference.svcmap">
+    <None Include="Connected Services\ServiceReferenceGP\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

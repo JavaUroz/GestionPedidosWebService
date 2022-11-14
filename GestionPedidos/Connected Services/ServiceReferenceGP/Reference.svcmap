@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0da0f46c-398c-43ce-b91c-2d0f5c257506" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="00a9f7c2-5c65-46fb-83ac-af054fd8845f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:65167/WSGestionPedidos.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSGestionPedidos.wsdl" MetadataType="Wsdl" ID="fe7c0a38-3ac1-4d38-9b56-65a54e472989" SourceId="1" SourceUrl="http://localhost:65167/WSGestionPedidos.asmx?wsdl" />
-    <MetadataFile FileName="WSGestionPedidos.disco" MetadataType="Disco" ID="4cc0bf72-1803-4a51-8751-bf75d713a29c" SourceId="1" SourceUrl="http://localhost:65167/WSGestionPedidos.asmx?disco" />
+    <MetadataFile FileName="WSGestionPedidos.wsdl" MetadataType="Wsdl" ID="1a3c3544-bad3-4837-8eb9-e124c94a62b9" SourceId="1" SourceUrl="http://localhost:65167/WSGestionPedidos.asmx?wsdl" />
+    <MetadataFile FileName="WSGestionPedidos.disco" MetadataType="Disco" ID="9fce394f-fb09-4b52-8057-29333c58ff8d" SourceId="1" SourceUrl="http://localhost:65167/WSGestionPedidos.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

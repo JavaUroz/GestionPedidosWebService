@@ -1,4 +1,4 @@
-﻿Imports GestionPedidos.ServiceReferenceGestionPedidos
+﻿Imports GestionPedidos.ServiceReferenceGP
 Imports Microsoft.Office.Interop.Excel
 
 Public Class DGVClientes
@@ -9,7 +9,7 @@ Public Class DGVClientes
     Dim posicionEnGrilla As Integer = 0
     Dim idClienteSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As New ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient()
+    Dim ws As New ServiceReferenceGP.WSGestionPedidosSoapClient
 
     Private Sub DGVClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicializarComponentes()

@@ -13,32 +13,32 @@ Option Explicit On
 
 Imports System.Data
 
-Namespace ServiceReferenceGestionPedidos
+Namespace ServiceReferenceGP
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
-     System.ServiceModel.ServiceContractAttribute(ConfigurationName:="ServiceReferenceGestionPedidos.WSGestionPedidosSoap")>  _
+     System.ServiceModel.ServiceContractAttribute(ConfigurationName:="ServiceReferenceGP.WSGestionPedidosSoap")>  _
     Public Interface WSGestionPedidosSoap
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Agregar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer
+        Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Agregar", ReplyAction:="*")>  _
-        Function Cliente_AgregarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer)
+        Function Cliente_AgregarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Actualizar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Cliente_Actualizar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer
+        Function Cliente_Actualizar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Actualizar", ReplyAction:="*")>  _
-        Function Cliente_ActualizarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer)
+        Function Cliente_ActualizarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_ObtenerPorCampo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Cliente_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGestionPedidos.ClienteE
+        Function Cliente_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGP.ClienteE
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_ObtenerPorCampo", ReplyAction:="*")>  _
-        Function Cliente_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGestionPedidos.ClienteE)
+        Function Cliente_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGP.ClienteE)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_ObtenerTodo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
@@ -49,31 +49,31 @@ Namespace ServiceReferenceGestionPedidos
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Borrar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Cliente_Borrar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer
+        Function Cliente_Borrar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Borrar", ReplyAction:="*")>  _
-        Function Cliente_BorrarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer)
+        Function Cliente_BorrarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Agregar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Producto_Agregar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer
+        Function Producto_Agregar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Agregar", ReplyAction:="*")>  _
-        Function Producto_AgregarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer)
+        Function Producto_AgregarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Actualizar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Producto_Actualizar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer
+        Function Producto_Actualizar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Actualizar", ReplyAction:="*")>  _
-        Function Producto_ActualizarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer)
+        Function Producto_ActualizarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_ObtenerPorCampo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Producto_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGestionPedidos.ProductoE
+        Function Producto_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGP.ProductoE
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_ObtenerPorCampo", ReplyAction:="*")>  _
-        Function Producto_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGestionPedidos.ProductoE)
+        Function Producto_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGP.ProductoE)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_ObtenerTodo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
@@ -84,10 +84,10 @@ Namespace ServiceReferenceGestionPedidos
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Borrar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Producto_Borrar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer
+        Function Producto_Borrar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Producto_Borrar", ReplyAction:="*")>  _
-        Function Producto_BorrarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer)
+        Function Producto_BorrarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/UnidadMedida_ObtenerTodo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
@@ -321,14 +321,14 @@ Namespace ServiceReferenceGestionPedidos
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
     Public Interface WSGestionPedidosSoapChannel
-        Inherits ServiceReferenceGestionPedidos.WSGestionPedidosSoap, System.ServiceModel.IClientChannel
+        Inherits ServiceReferenceGP.WSGestionPedidosSoap, System.ServiceModel.IClientChannel
     End Interface
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
     Partial Public Class WSGestionPedidosSoapClient
-        Inherits System.ServiceModel.ClientBase(Of ServiceReferenceGestionPedidos.WSGestionPedidosSoap)
-        Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap
+        Inherits System.ServiceModel.ClientBase(Of ServiceReferenceGP.WSGestionPedidosSoap)
+        Implements ServiceReferenceGP.WSGestionPedidosSoap
         
         Public Sub New()
             MyBase.New
@@ -350,91 +350,91 @@ Namespace ServiceReferenceGestionPedidos
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_Agregar
+        Public Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_Agregar
             Return MyBase.Channel.Cliente_Agregar(ObjCliente)
         End Function
         
-        Public Function Cliente_AgregarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_AgregarAsync
+        Public Function Cliente_AgregarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_AgregarAsync
             Return MyBase.Channel.Cliente_AgregarAsync(ObjCliente)
         End Function
         
-        Public Function Cliente_Actualizar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_Actualizar
+        Public Function Cliente_Actualizar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_Actualizar
             Return MyBase.Channel.Cliente_Actualizar(ObjCliente)
         End Function
         
-        Public Function Cliente_ActualizarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_ActualizarAsync
+        Public Function Cliente_ActualizarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_ActualizarAsync
             Return MyBase.Channel.Cliente_ActualizarAsync(ObjCliente)
         End Function
         
-        Public Function Cliente_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGestionPedidos.ClienteE Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_ObtenerPorCampo
+        Public Function Cliente_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGP.ClienteE Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_ObtenerPorCampo
             Return MyBase.Channel.Cliente_ObtenerPorCampo(field, value)
         End Function
         
-        Public Function Cliente_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGestionPedidos.ClienteE) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_ObtenerPorCampoAsync
+        Public Function Cliente_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGP.ClienteE) Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_ObtenerPorCampoAsync
             Return MyBase.Channel.Cliente_ObtenerPorCampoAsync(field, value)
         End Function
         
-        Public Function Cliente_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_ObtenerTodo
+        Public Function Cliente_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_ObtenerTodo
             Return MyBase.Channel.Cliente_ObtenerTodo
         End Function
         
-        Public Function Cliente_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_ObtenerTodoAsync
+        Public Function Cliente_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_ObtenerTodoAsync
             Return MyBase.Channel.Cliente_ObtenerTodoAsync
         End Function
         
-        Public Function Cliente_Borrar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_Borrar
+        Public Function Cliente_Borrar(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_Borrar
             Return MyBase.Channel.Cliente_Borrar(ObjCliente)
         End Function
         
-        Public Function Cliente_BorrarAsync(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_BorrarAsync
+        Public Function Cliente_BorrarAsync(ByVal ObjCliente As ServiceReferenceGP.ClienteE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Cliente_BorrarAsync
             Return MyBase.Channel.Cliente_BorrarAsync(ObjCliente)
         End Function
         
-        Public Function Producto_Agregar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_Agregar
+        Public Function Producto_Agregar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_Agregar
             Return MyBase.Channel.Producto_Agregar(ObjProducto)
         End Function
         
-        Public Function Producto_AgregarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_AgregarAsync
+        Public Function Producto_AgregarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_AgregarAsync
             Return MyBase.Channel.Producto_AgregarAsync(ObjProducto)
         End Function
         
-        Public Function Producto_Actualizar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_Actualizar
+        Public Function Producto_Actualizar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_Actualizar
             Return MyBase.Channel.Producto_Actualizar(ObjProducto)
         End Function
         
-        Public Function Producto_ActualizarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_ActualizarAsync
+        Public Function Producto_ActualizarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_ActualizarAsync
             Return MyBase.Channel.Producto_ActualizarAsync(ObjProducto)
         End Function
         
-        Public Function Producto_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGestionPedidos.ProductoE Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_ObtenerPorCampo
+        Public Function Producto_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ServiceReferenceGP.ProductoE Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_ObtenerPorCampo
             Return MyBase.Channel.Producto_ObtenerPorCampo(field, value)
         End Function
         
-        Public Function Producto_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGestionPedidos.ProductoE) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_ObtenerPorCampoAsync
+        Public Function Producto_ObtenerPorCampoAsync(ByVal field As String, ByVal value As String) As System.Threading.Tasks.Task(Of ServiceReferenceGP.ProductoE) Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_ObtenerPorCampoAsync
             Return MyBase.Channel.Producto_ObtenerPorCampoAsync(field, value)
         End Function
         
-        Public Function Producto_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_ObtenerTodo
+        Public Function Producto_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_ObtenerTodo
             Return MyBase.Channel.Producto_ObtenerTodo
         End Function
         
-        Public Function Producto_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_ObtenerTodoAsync
+        Public Function Producto_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_ObtenerTodoAsync
             Return MyBase.Channel.Producto_ObtenerTodoAsync
         End Function
         
-        Public Function Producto_Borrar(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_Borrar
+        Public Function Producto_Borrar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_Borrar
             Return MyBase.Channel.Producto_Borrar(ObjProducto)
         End Function
         
-        Public Function Producto_BorrarAsync(ByVal ObjProducto As ServiceReferenceGestionPedidos.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Producto_BorrarAsync
+        Public Function Producto_BorrarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.Producto_BorrarAsync
             Return MyBase.Channel.Producto_BorrarAsync(ObjProducto)
         End Function
         
-        Public Function UnidadMedida_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.UnidadMedida_ObtenerTodo
+        Public Function UnidadMedida_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGP.WSGestionPedidosSoap.UnidadMedida_ObtenerTodo
             Return MyBase.Channel.UnidadMedida_ObtenerTodo
         End Function
         
-        Public Function UnidadMedida_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.UnidadMedida_ObtenerTodoAsync
+        Public Function UnidadMedida_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGP.WSGestionPedidosSoap.UnidadMedida_ObtenerTodoAsync
             Return MyBase.Channel.UnidadMedida_ObtenerTodoAsync
         End Function
     End Class
