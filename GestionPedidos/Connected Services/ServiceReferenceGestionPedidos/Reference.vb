@@ -19,13 +19,6 @@ Namespace ServiceReferenceGestionPedidos
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="ServiceReferenceGestionPedidos.WSGestionPedidosSoap")>  _
     Public Interface WSGestionPedidosSoap
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/HelloWorld", ReplyAction:="*"),  _
-         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function HelloWorld() As String
-        
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/HelloWorld", ReplyAction:="*")>  _
-        Function HelloWorldAsync() As System.Threading.Tasks.Task(Of String)
-        
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Cliente_Agregar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
         Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer
@@ -220,8 +213,6 @@ Namespace ServiceReferenceGestionPedidos
         
         Private prId1Field As Integer
         
-        Private prCodigo1Field As String
-        
         Private prDescripcion1Field As String
         
         Private prUnidadMedida1Field As String
@@ -248,18 +239,6 @@ Namespace ServiceReferenceGestionPedidos
         
         '''<remarks/>
         <System.Xml.Serialization.XmlElementAttribute(Order:=1)>  _
-        Public Property PrCodigo1() As String
-            Get
-                Return Me.prCodigo1Field
-            End Get
-            Set
-                Me.prCodigo1Field = value
-                Me.RaisePropertyChanged("PrCodigo1")
-            End Set
-        End Property
-        
-        '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>  _
         Public Property PrDescripcion1() As String
             Get
                 Return Me.prDescripcion1Field
@@ -271,7 +250,7 @@ Namespace ServiceReferenceGestionPedidos
         End Property
         
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>  _
         Public Property PrUnidadMedida1() As String
             Get
                 Return Me.prUnidadMedida1Field
@@ -283,7 +262,7 @@ Namespace ServiceReferenceGestionPedidos
         End Property
         
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>  _
         Public Property PrPrecioVenta1() As Decimal
             Get
                 Return Me.prPrecioVenta1Field
@@ -295,7 +274,7 @@ Namespace ServiceReferenceGestionPedidos
         End Property
         
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>  _
         Public Property PrPrecioCompra1() As Decimal
             Get
                 Return Me.prPrecioCompra1Field
@@ -307,7 +286,7 @@ Namespace ServiceReferenceGestionPedidos
         End Property
         
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>  _
         Public Property PrFechaActPrecioVenta1() As Date
             Get
                 Return Me.prFechaActPrecioVenta1Field
@@ -319,7 +298,7 @@ Namespace ServiceReferenceGestionPedidos
         End Property
         
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=7)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>  _
         Public Property PrFechaActPrecioCompra1() As Date
             Get
                 Return Me.prFechaActPrecioCompra1Field
@@ -370,14 +349,6 @@ Namespace ServiceReferenceGestionPedidos
         Public Sub New(ByVal binding As System.ServiceModel.Channels.Binding, ByVal remoteAddress As System.ServiceModel.EndpointAddress)
             MyBase.New(binding, remoteAddress)
         End Sub
-        
-        Public Function HelloWorld() As String Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.HelloWorld
-            Return MyBase.Channel.HelloWorld
-        End Function
-        
-        Public Function HelloWorldAsync() As System.Threading.Tasks.Task(Of String) Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.HelloWorldAsync
-            Return MyBase.Channel.HelloWorldAsync
-        End Function
         
         Public Function Cliente_Agregar(ByVal ObjCliente As ServiceReferenceGestionPedidos.ClienteE) As Integer Implements ServiceReferenceGestionPedidos.WSGestionPedidosSoap.Cliente_Agregar
             Return MyBase.Channel.Cliente_Agregar(ObjCliente)

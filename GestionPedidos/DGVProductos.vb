@@ -8,7 +8,7 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As ServiceReferenceGestionPedidos.WSGestionPedidosSoapChannel
+    Dim ws As ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient
 
 
 
@@ -48,7 +48,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Text = ""
         Try
             Dim ds As New DataSet
-            ds = ws.Cliente_ObtenerTodo()
+            ds = ws.Producto_ObtenerTodo
             dgv_Productos.DataSource = ds.Tables(0).DefaultView
         Catch ex As Exception
             msj = MessageBox.Show(ex, MessageBoxButtons.OK)

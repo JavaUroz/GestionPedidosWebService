@@ -1,7 +1,6 @@
 ﻿Imports GestionPedidos.ServiceReferenceGestionPedidos
 Imports Microsoft.Office.Interop.Excel
 
-
 Public Class DGVClientes
     Dim oCliente As New ClienteE
     Dim query As String
@@ -10,7 +9,8 @@ Public Class DGVClientes
     Dim posicionEnGrilla As Integer = 0
     Dim idClienteSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
-    Dim ws As New ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient
+    Dim ws As New ServiceReferenceGestionPedidos.WSGestionPedidosSoapClient()
+
     Private Sub DGVClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InicializarComponentes()
         dgv_Clientes.ReadOnly = True
