@@ -32,12 +32,11 @@ Public Class DGVProductos
         dgv_Productos.ReadOnly = True
         dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv_Productos.RowHeadersVisible = False
-        dgv_Productos.Columns(0).Visible = False
-        dgv_Productos.Columns(1).HeaderText = "Código"
-        dgv_Productos.Columns(2).HeaderText = "Descipción"
-        dgv_Productos.Columns(3).HeaderText = "U.M."
-        dgv_Productos.Columns(4).HeaderText = "Precio Venta"
-        dgv_Productos.Columns(5).HeaderText = "Precio Compra"
+        dgv_Productos.Columns(0).HeaderText = "Código"
+        dgv_Productos.Columns(1).HeaderText = "Descipción"
+        dgv_Productos.Columns(2).HeaderText = "U.M."
+        dgv_Productos.Columns(3).HeaderText = "Precio Venta"
+        dgv_Productos.Columns(4).HeaderText = "Precio Compra"
     End Sub
     Private Sub InicializarComponentes()
         txt_Codigo.Text = ""
@@ -96,7 +95,7 @@ Public Class DGVProductos
 
                 'Datos de producto
                 idProductoSeleccionado = idProducto ' Lo guardo en esta variable para despues recuperarlo al momento del update
-                txt_Codigo.Text = oProducto.PrCodigo1
+                txt_Codigo.Text = oProducto.PrId1
                 txt_Descripcion.Text = oProducto.PrDescripcion1
                 cb_UnidadMedida.Text = oProducto.PrUnidadMedida1
                 txt_PrecioCompra.Text = oProducto.PrPrecioCompra1
@@ -212,7 +211,7 @@ Public Class DGVProductos
                     Return
                 End If
 
-                oProducto.PrCodigo1 = txt_Codigo.Text.Trim
+                oProducto.PrId1 = txt_Codigo.Text.Trim
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim
@@ -231,7 +230,7 @@ Public Class DGVProductos
                 End Select
             Case "Modificar"
                 oProducto.PrId1 = idProductoSeleccionado
-                oProducto.PrCodigo1 = txt_Codigo.Text.Trim
+                oProducto.PrId1 = txt_Codigo.Text.Trim
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim

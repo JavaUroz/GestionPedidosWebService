@@ -83,13 +83,14 @@ Namespace AccesoDatos
         Public Function Producto_Add(ByVal objProducto As ProductoE) As Integer
             Dim _query = String.Format("
 INSERT INTO [dbo].[Productos]
-           ([prCodigo]
-           ,[prDescripcion]
+           ([prDescripcion]
            ,[prUnidadMedida]
            ,[prPrecioCompra]
-           ,[prPrecioVenta])
+           ,[prPrecioVenta]
+           ,[prFechaActPrecioCompra]
+           ,[prFechaActPrecioVenta])           
      VALUES
-           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrCodigo1, objProducto.PrDescripcion1, objProducto.PrUnidadMedida1, objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1)
+           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrDescripcion1, objProducto.PrUnidadMedida1, objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1, objProducto.PrFechaActPrecioVenta1)
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             Return _result
             cnn.Close()
@@ -99,12 +100,13 @@ INSERT INTO [dbo].[Productos]
             Try
                 Dim _query = String.Format("
 UPDATE [dbo].[Productos]
-   SET [prCodigo] = '{1}',
-       [prDescripcion] = '{2}',
-       [prUnidadMedida] = '{3}',
-       [prPrecioCompra] = '{4}',
-       [prPrecioVenta] = '{5}',
- WHERE prId ='{0}'", objProducto.PrId1, objProducto.PrCodigo1.Replace("'", "''"), objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrPrecioVenta1.ToString.Replace("'", "''"))
+   SET [prDescripcion] = '{1}',
+       [prUnidadMedida] = '{2}',
+       [prPrecioCompra] = '{3}',
+       [prPrecioVenta] = '{4}',
+       [prFechaActPrecioCompra] = '{5}',
+       [prFechaActPrecioVenta] = '{6}'  
+ WHERE prId ='{0}'", objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrPrecioVenta1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.ToString.Replace("'", "''"))
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -134,6 +136,8 @@ DELETE FROM [dbo].[Productos]
                     objProducto.PrUnidadMedida1 = reader("prUnidadMedida").ToString
                     objProducto.PrPrecioCompra1 = CDec(reader("prPrecioCompra"))
                     objProducto.PrPrecioVenta1 = CDec(reader("prPrecioVenta"))
+                    objProducto.PrFechaActPrecioCompra1 = CDate(reader("prFechaActPrecioCompra"))
+                    objProducto.PrFechaActPrecioVenta1 = CDate(reader("prFechaActPrecioVenta"))
                 End While
                 reader.Dispose()
                 cnn.Close()

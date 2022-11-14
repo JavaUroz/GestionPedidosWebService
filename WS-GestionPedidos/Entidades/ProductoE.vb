@@ -2,7 +2,6 @@
     Public Class ProductoE
 #Region "Miembros"
         Private prId As Integer
-        Private prCodigo As Integer
         Private prDescripcion As String
         Private prUnidadMedida As String
         Private prPrecioVenta As Decimal
@@ -17,15 +16,6 @@
             End Get
             Set(value As Integer)
                 prId = value
-            End Set
-        End Property
-
-        Public Property PrCodigo1 As String
-            Get
-                Return prCodigo
-            End Get
-            Set(value As String)
-                prCodigo = value
             End Set
         End Property
 
