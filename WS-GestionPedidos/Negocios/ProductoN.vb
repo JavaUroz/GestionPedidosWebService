@@ -3,7 +3,7 @@ Imports WS_GestionPedidos.Entidades
 
 Namespace Negocios
     Public Class ProductoN
-        Dim oSqlDataProvider As SQLDataProvider
+        Dim oSqlDataProvider As New SQLDataProvider
 
         Public Function ProductoN_Add(ByVal objProducto As ProductoE) As Integer
             Return oSqlDataProvider.Producto_Add(objProducto)

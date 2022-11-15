@@ -1,5 +1,7 @@
-﻿Imports GestionPedidos.ServiceReferenceGP
+﻿Imports System.IO
+Imports GestionPedidos.ServiceReferenceGP
 Imports Microsoft.Office.Interop.Excel
+Imports OfficeOpenXml
 
 Public Class DGVClientes
     Dim oCliente As New ClienteE
@@ -184,6 +186,7 @@ Public Class DGVClientes
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then
             Modificar(dgv_Clientes.Rows(e.RowIndex).Cells("clId").Value.ToString, e.RowIndex)
         End If
+        buttonClickedConsulta = "Modificar"
     End Sub
 
     Private Sub btn_Exportar_Click(sender As Object, e As EventArgs) Handles btn_Exportar.Click
@@ -213,7 +216,7 @@ Public Class DGVClientes
             Dim f As New SaveFileDialog
             Dim camino As String = ""
             Dim archivo As String
-            archivo = ("Clientes " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xls")
+            archivo = ("Clientes " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xlsx")
             f.Filter = "Excel Files|*.xlsx;*.xls;"
             f.FileName = archivo
             If DialogResult.OK = f.ShowDialog() Then

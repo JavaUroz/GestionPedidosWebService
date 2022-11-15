@@ -1,5 +1,10 @@
-﻿Imports GestionPedidos.ServiceReferenceGP
+﻿Imports System.Globalization
+Imports System.IO
+Imports System.Runtime.Serialization
+Imports GestionPedidos.ServiceReferenceGP
 Imports Microsoft.Office.Interop.Excel
+Imports OfficeOpenXml
+
 Public Class DGVProductos
     Dim oProducto As New ProductoE
     Dim query As String
@@ -15,15 +20,16 @@ Public Class DGVProductos
         dgv_Productos.ReadOnly = True
         dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv_Productos.RowHeadersVisible = False
-        dgv_Productos.Columns(0).Visible = False
-        dgv_Productos.Columns(1).HeaderText = "Código"
-        dgv_Productos.Columns(2).HeaderText = "Descipción"
-        dgv_Productos.Columns(3).HeaderText = "U.M."
-        dgv_Productos.Columns(4).HeaderText = "Precio Venta"
-        dgv_Productos.Columns(5).HeaderText = "Precio Compra"
+        dgv_Productos.Columns(0).HeaderText = "Código"
+        dgv_Productos.Columns(1).HeaderText = "Descipción"
+        dgv_Productos.Columns(2).HeaderText = "U.M."
+        dgv_Productos.Columns(3).HeaderText = "Precio Venta"
+        dgv_Productos.Columns(4).HeaderText = "Precio Compra"
+        dgv_Productos.Columns(5).Visible = False
+        dgv_Productos.Columns(6).Visible = False
+
     End Sub
     Private Sub InicializarComponentes()
-        txt_Codigo.Text = ""
         txt_Descripcion.Text = ""
         cb_UnidadMedida.Text = ""
         txt_PrecioCompra.Text = ""
@@ -39,7 +45,6 @@ Public Class DGVProductos
         End Try
     End Sub
     Private Sub DesactivarControlesProducto()
-        txt_Codigo.Enabled = False
         txt_Descripcion.Enabled = False
         cb_UnidadMedida.Enabled = False
         txt_PrecioCompra.Enabled = False
@@ -50,7 +55,6 @@ Public Class DGVProductos
         btn_Cancelar.Enabled = False
     End Sub
     Private Sub ActivarControlesProducto()
-        txt_Codigo.Enabled = True
         txt_Descripcion.Enabled = True
         cb_UnidadMedida.Enabled = True
         txt_PrecioCompra.Enabled = True
@@ -95,7 +99,6 @@ Public Class DGVProductos
 
                 'Datos de producto
                 idProductoSeleccionado = idProducto ' Lo guardo en esta variable para despues recuperarlo al momento del update
-                txt_Codigo.Text = oProducto.PrId1
                 txt_Descripcion.Text = oProducto.PrDescripcion1
                 cb_UnidadMedida.Text = oProducto.PrUnidadMedida1
                 txt_PrecioCompra.Text = oProducto.PrPrecioCompra1
@@ -110,53 +113,53 @@ Public Class DGVProductos
         End Try
     End Sub
     Private Sub btn_Exportar_Click(sender As Object, e As EventArgs) Handles btn_Exportar.Click
-        'Try
-        '    copiarAlPortapapeles()
-        '    Dim objLibroExcel As Workbook
-        '    Dim objLibrosExcel As Workbooks
-        '    Dim objHojaExcel As Worksheet
-        '    Dim objHojasExcel As Sheets
-        '    Dim objExcel As Application
-        '    objExcel = New Application
-        '    objExcel.Visible = False
-        '    objExcel.DisplayAlerts = False
-        '    objLibroExcel = CType(objExcel.Workbooks.Add(), Workbook)
-        '    objLibrosExcel = objExcel.Workbooks
-        '    objHojasExcel = objLibroExcel.Worksheets
-        '    objLibroExcel = objLibrosExcel.Item(1)
-        '    objHojaExcel = CType(objHojasExcel.Item(1), Worksheet)
-        '    objHojaExcel.Name = "Clientes"
-        '    Dim CR As Range = objHojaExcel.Cells(1, 1)
-        '    CR.Select()
-        '    objHojaExcel.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, True)
-        '    objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Color = 0
-        '    objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.LineStyle = XlLineStyle.xlContinuous
-        '    objHojaExcel.Range("A1", Chr(dgv_Clientes.ColumnCount - 1 + 65) & dgv_Clientes.RowCount + 1).Borders.Weight = 2
-        '    objHojaExcel.Columns.AutoFit()
-        '    Dim f As New SaveFileDialog
-        '    Dim camino As String = ""
-        '    Dim archivo As String
-        '    archivo = ("Clientes " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xls")
-        '    f.Filter = "Excel Files|*.xlsx;*.xls;"
-        '    f.FileName = archivo
-        '    If DialogResult.OK = f.ShowDialog() Then
-        '        camino = f.FileName
-        '        objLibroExcel.SaveAs(camino, XlFileFormat.xlWorkbookDefault, System.Reflection.Missing.Value, System.Reflection.Missing.Value, False, False, XlSaveAsAccessMode.xlNoChange, False, False, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value)
-        '        dgv_Clientes.DataSource = Nothing
-        '        btn_Exportar.Enabled = False
-        '        Process.Start("explorer.exe", "/select," & camino)
-        '    End If
-        '    objLibroExcel.Close()
-        '    objExcel.Quit()
-        '    System.Runtime.InteropServices.Marshal.ReleaseComObject(objLibroExcel)
-        '    System.Runtime.InteropServices.Marshal.ReleaseComObject(objHojaExcel)
-        '    System.Runtime.InteropServices.Marshal.ReleaseComObject(objExcel)
-        '    objLibroExcel = Nothing
-        '    objExcel = Nothing
-        'Catch ex As Exception
-        '    Utilidades.ShowBalloon(btn_Exportar, "Error", "No se pudo exportar clientes", ToolTipIcon.Error)
-        'End Try
-        'InicializarComponentes()
+        Try
+            copiarAlPortapapeles()
+            Dim objLibroExcel As Workbook
+            Dim objLibrosExcel As Workbooks
+            Dim objHojaExcel As Worksheet
+            Dim objHojasExcel As Sheets
+            Dim objExcel As Application
+            objExcel = New Application
+            objExcel.Visible = False
+            objExcel.DisplayAlerts = False
+            objLibroExcel = CType(objExcel.Workbooks.Add(), Workbook)
+            objLibrosExcel = objExcel.Workbooks
+            objHojasExcel = objLibroExcel.Worksheets
+            objLibroExcel = objLibrosExcel.Item(1)
+            objHojaExcel = CType(objHojasExcel.Item(1), Worksheet)
+            objHojaExcel.Name = "Productos"
+            Dim CR As Range = objHojaExcel.Cells(1, 1)
+            CR.Select()
+            objHojaExcel.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, True)
+            objHojaExcel.Range("A1", Chr(dgv_Productos.ColumnCount - 1 + 65) & dgv_Productos.RowCount + 1).Borders.Color = 0
+            objHojaExcel.Range("A1", Chr(dgv_Productos.ColumnCount - 1 + 65) & dgv_Productos.RowCount + 1).Borders.LineStyle = XlLineStyle.xlContinuous
+            objHojaExcel.Range("A1", Chr(dgv_Productos.ColumnCount - 1 + 65) & dgv_Productos.RowCount + 1).Borders.Weight = 2
+            objHojaExcel.Columns.AutoFit()
+            Dim f As New SaveFileDialog
+            Dim camino As String = ""
+            Dim archivo As String
+            archivo = ("Productos " & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xlsx")
+            f.Filter = "Excel Files|*.xlsx;*.xls;"
+            f.FileName = archivo
+            If DialogResult.OK = f.ShowDialog() Then
+                camino = f.FileName
+                objLibroExcel.SaveAs(camino, XlFileFormat.xlWorkbookDefault, System.Reflection.Missing.Value, System.Reflection.Missing.Value, False, False, XlSaveAsAccessMode.xlNoChange, False, False, System.Reflection.Missing.Value, System.Reflection.Missing.Value, System.Reflection.Missing.Value)
+                dgv_Productos.DataSource = Nothing
+                btn_Exportar.Enabled = False
+                Process.Start("explorer.exe", "/select," & camino)
+            End If
+            objLibroExcel.Close()
+            objExcel.Quit()
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objLibroExcel)
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objHojaExcel)
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(objExcel)
+            objLibroExcel = Nothing
+            objExcel = Nothing
+        Catch ex As Exception
+            Utilidades.ShowBalloon(btn_Exportar, "Error", "No se pudo exportar productos", ToolTipIcon.Error)
+        End Try
+        InicializarComponentes()
     End Sub
     Private Sub copiarAlPortapapeles()
         Try
@@ -180,7 +183,7 @@ Public Class DGVProductos
         ActivarControlesProducto()
         DesactivarControlesDGV()
         buttonClickedConsulta = "Modificar"
-        Modificar(dgv_Productos.Rows(posicionEnGrilla).Cells("clId").Value.ToString, posicionEnGrilla)
+        Modificar(dgv_Productos.Rows(posicionEnGrilla).Cells("prId").Value.ToString, posicionEnGrilla)
     End Sub
 
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
@@ -199,44 +202,36 @@ Public Class DGVProductos
         ActivarControlesDGV()
         Select Case buttonClickedConsulta
             Case "Agregar"
-                If String.IsNullOrEmpty(txt_Codigo.Text) Then
-                    txt_Codigo.Focus()
-                    Utilidades.ShowBalloon(txt_Codigo, "Error", "El campo Código no puede estar vacío", ToolTipIcon.Error, 5000)
+                If String.IsNullOrEmpty(txt_Descripcion.Text) Then
+                    txt_Descripcion.Focus()
+                    Utilidades.ShowBalloon(txt_Descripcion, "Error", "El campo Descripcion no puede estar vacío", ToolTipIcon.Error, 5000)
                     InicializarComponentes()
                     Return
                 End If
-                If String.IsNullOrEmpty(txt_Descripcion.Text) Then
-                    txt_Descripcion.Focus()
-                    Utilidades.ShowBalloon(txt_Descripcion, "Error", "El campo Descripción no puede estar vacío", ToolTipIcon.Error, 5000)
-                    Return
-                End If
 
-                oProducto.PrId1 = txt_Codigo.Text.Trim
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim
                 oProducto.PrPrecioVenta1 = txt_PrecioVenta.Text.Trim
-                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Text.Trim
-                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Text.Trim
-
+                'oProducto.PrFechaActPrecioCompra1 = Convert.ToDateTime(dtpFechaActPrecioCompra.Value.Date().ToString)
+                'oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.ToString("d", CultureInfo.CreateSpecificCulture("en-EN"))
                 result = ws.Producto_Agregar(oProducto)
                 Select Case result
                     Case -99 ' Error al guardar en la base de datos
-                        Utilidades.ShowBalloon(btn_Agregar, "Lo siento", "No se pudo guardar el cliente", ToolTipIcon.Error)
+                        Utilidades.ShowBalloon(btn_Agregar, "Lo siento", "No se pudo guardar el producto", ToolTipIcon.Error)
                         InicializarComponentes()
                     Case Else
-                        msj = MessageBox.Show("Cliente creado exitosamente!", "Felicitaciones", MessageBoxButtons.OK)
+                        msj = MessageBox.Show("Producto creado exitosamente!", "Felicitaciones", MessageBoxButtons.OK)
                         InicializarComponentes()
                 End Select
             Case "Modificar"
                 oProducto.PrId1 = idProductoSeleccionado
-                oProducto.PrId1 = txt_Codigo.Text.Trim
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim
                 oProducto.PrPrecioVenta1 = txt_PrecioVenta.Text.Trim
-                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Text.Trim
-                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Text.Trim
+                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Value.ToString("yyyy-MM-dd")
+                oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.ToString("yyyy-MM-dd")
 
                 result = ws.Producto_Actualizar(oProducto)
                 Select Case result
