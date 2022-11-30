@@ -32,4 +32,20 @@
         childForm.Dock = DockStyle.Fill
         childForm.Show()
     End Sub
+
+    Private Sub VentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasToolStripMenuItem.Click
+        Dim f As Form
+        For Each f In Me.MdiChildren
+            If (f.Text = "Ventas") Then
+                f.BringToFront()
+                Return
+            End If
+        Next
+        Dim childForm As New CargaPedidos
+        childForm.Text = "Ventas"
+        childForm.gbTipoDestinatario.Text = "Cliente"
+        childForm.MdiParent = Me
+        childForm.Dock = DockStyle.Fill
+        childForm.Show()
+    End Sub
 End Class

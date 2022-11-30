@@ -67,7 +67,31 @@ Public Class WSGestionPedidos
     End Function
 #End Region
 #Region "Productos pedidos"
-
+    <WebMethod>
+    Public Function ProductosPedidos_Agregar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Add(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_Actualizar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Update(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ProductosPedidosE
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_GetByField(field, value)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_ObtenerTodo() As DataSet
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_GetAll()
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_Borrar(ObjProducto As ProductoE) As Integer
+        Dim ObjProductoN As New ProductoN
+        Return ObjProductoN.ProductoN_Delete(ObjProducto)
+    End Function
 #End Region
 #Region "Unidades de medida"
     <WebMethod>

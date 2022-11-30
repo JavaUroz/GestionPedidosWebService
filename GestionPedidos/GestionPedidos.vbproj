@@ -101,6 +101,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CargaPedidos.Designer.vb">
+      <DependentUpon>CargaPedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CargaPedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Connected Services\ServiceReferenceGP\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,6 +149,9 @@
     <Compile Include="Utilidades.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CargaPedidos.resx">
+      <DependentUpon>CargaPedidos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DGVProductos.resx">
       <DependentUpon>DGVProductos.vb</DependentUpon>
     </EmbeddedResource>
@@ -166,7 +175,10 @@
     <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.ProductoE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.wsdl" />
+    <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.ProductosPedidosE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos1.wsdl" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -183,12 +195,11 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReferenceGP\" />
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos1.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.disco" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceGP\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReferenceGP\configuration91.svcinfo" />

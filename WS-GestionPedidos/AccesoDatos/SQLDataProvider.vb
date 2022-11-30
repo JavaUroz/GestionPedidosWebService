@@ -118,7 +118,7 @@ UPDATE [dbo].[Productos]
             Try
                 Dim _query = String.Format("
 DELETE FROM [dbo].[Productos]
-      WHERE clId = '{0}'", objProducto.PrId1)
+      WHERE prId = '{0}'", objProducto.PrId1)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -218,6 +218,18 @@ DELETE FROM [dbo].[ProductosPedidos]
                 Console.Write(ex)
             End Try
             Return objProductosPedidos
+        End Function
+        Public Function ProductosPedidos_GetAll() As DataSet
+            Dim _result As DataSet = Nothing
+            Dim _query As String
+            Try
+                _query = String.Format("Select * FROM ProductosPedidos")
+                Dim ds As DataSet = CType(SqlHelper.ExecuteDataset(cnn, CommandType.Text, _query), DataSet)
+                Return ds
+            Catch ex As Exception
+                Console.Write(ex)
+                Return _result
+            End Try
         End Function
 #End Region
 #Region "Unidades de medida"

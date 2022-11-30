@@ -20,8 +20,8 @@ Public Class DGVProductos
         dgv_Productos.ReadOnly = True
         dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv_Productos.RowHeadersVisible = False
-        dgv_Productos.Columns(0).HeaderText = "Código"
-        dgv_Productos.Columns(1).HeaderText = "Descipción"
+        dgv_Productos.Columns(0).Visible = False
+        dgv_Productos.Columns(1).HeaderText = "Descripción"
         dgv_Productos.Columns(2).HeaderText = "U.M."
         dgv_Productos.Columns(3).HeaderText = "Precio Venta"
         dgv_Productos.Columns(4).HeaderText = "Precio Compra"
