@@ -28,6 +28,7 @@ Public Class CargaPedidos
     Private Sub InicializarComponentes()
         dgvPedido.Rows.Clear()
         cbRazonSocial.Text = ""
+        cbDescripcionProducto.Text = ""
         tbCantidad.Text = ""
         tbUnidadMedida.Text = ""
         tbPrecioUnitario.Text = ""
@@ -130,4 +131,18 @@ Public Class CargaPedidos
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         InicializarComponentes()
     End Sub
+
+    Private Sub sumarTotal() Handles dgvPedido.AllowUserToAddRowsChanged
+        Try
+            If dgvPedido.Rows.Count > 0 Then
+                For Each Fila As DataGridViewRow In dgvPedido.Rows
+                    If Not Fila Is Nothing Then
+
+                    End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 End Class
