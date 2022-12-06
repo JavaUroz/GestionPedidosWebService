@@ -161,7 +161,7 @@ Public Class CargaPedidos
             objHojasExcel = objLibroExcel.Worksheets
             objLibroExcel = objLibrosExcel.Item(1)
             objHojaExcel = CType(objHojasExcel.Item(1), Worksheet)
-            objHojaExcel.Name = "Pedido" + "_" + cbRazonSocial.Text
+            objHojaExcel.Name = "Pedido"
             Dim CR As Range = objHojaExcel.Cells(1, 1)
             CR.Select()
             objHojaExcel.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, True)
@@ -172,7 +172,7 @@ Public Class CargaPedidos
             Dim f As New SaveFileDialog
             Dim camino As String = ""
             Dim archivo As String
-            archivo = ("Pedido" & cbRazonSocial.Text & "_" & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xlsx")
+            archivo = ("Pedido" & "_" & cbRazonSocial.Text & "_" & Date.Now.ToString("dd-MM-yyyy-hh-ss") & ".xlsx")
             f.Filter = "Excel Files|*.xlsx;*.xls;"
             f.FileName = archivo
             If DialogResult.OK = f.ShowDialog() Then

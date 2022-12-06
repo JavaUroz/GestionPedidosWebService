@@ -30,8 +30,6 @@ Partial Class CargaPedidos
         Me.tbCantidad = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbUnidadMedida = New System.Windows.Forms.TextBox()
-        Me.tbPrecioTotal = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvPedido = New System.Windows.Forms.DataGridView()
         Me.tbPrecioUnitario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -117,23 +115,6 @@ Partial Class CargaPedidos
         Me.tbUnidadMedida.Name = "tbUnidadMedida"
         Me.tbUnidadMedida.Size = New System.Drawing.Size(72, 20)
         Me.tbUnidadMedida.TabIndex = 5
-        '
-        'tbPrecioTotal
-        '
-        Me.tbPrecioTotal.Enabled = False
-        Me.tbPrecioTotal.Location = New System.Drawing.Point(412, 255)
-        Me.tbPrecioTotal.Name = "tbPrecioTotal"
-        Me.tbPrecioTotal.Size = New System.Drawing.Size(131, 20)
-        Me.tbPrecioTotal.TabIndex = 6
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(372, 258)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(34, 13)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Total:"
         '
         'dgvPedido
         '
@@ -241,8 +222,6 @@ Partial Class CargaPedidos
         Me.GroupBox3.Controls.Add(Me.btnVaciar)
         Me.GroupBox3.Controls.Add(Me.btnQuitar)
         Me.GroupBox3.Controls.Add(Me.dgvPedido)
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Controls.Add(Me.tbPrecioTotal)
         Me.GroupBox3.Location = New System.Drawing.Point(13, 154)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(567, 285)
@@ -252,7 +231,7 @@ Partial Class CargaPedidos
         '
         'btnVaciar
         '
-        Me.btnVaciar.Location = New System.Drawing.Point(212, 247)
+        Me.btnVaciar.Location = New System.Drawing.Point(468, 247)
         Me.btnVaciar.Name = "btnVaciar"
         Me.btnVaciar.Size = New System.Drawing.Size(75, 23)
         Me.btnVaciar.TabIndex = 10
@@ -287,7 +266,6 @@ Partial Class CargaPedidos
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -300,8 +278,6 @@ Partial Class CargaPedidos
     Friend WithEvents tbCantidad As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents tbUnidadMedida As TextBox
-    Friend WithEvents tbPrecioTotal As TextBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents dgvPedido As DataGridView
     Friend WithEvents tbPrecioUnitario As TextBox
     Friend WithEvents Label6 As Label
