@@ -1,4 +1,7 @@
-﻿Imports GestionPedidos.ServiceReferenceGP
+﻿Imports System.Text
+Imports GestionPedidos.ServiceReferenceGP
+Imports OfficeOpenXml.Sorting
+
 Public Class CargaPedidos
     Dim oProductosPedidos As New ProductosPedidosE
     Dim oCliente As New ClienteE
@@ -131,18 +134,4 @@ Public Class CargaPedidos
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         InicializarComponentes()
     End Sub
-
-    Private Sub sumarTotal() Handles dgvPedido.AllowUserToAddRowsChanged
-        Try
-            If dgvPedido.Rows.Count > 0 Then
-                For Each Fila As DataGridViewRow In dgvPedido.Rows
-                    If Not Fila Is Nothing Then
-
-                    End If
-            End If
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
 End Class
