@@ -163,12 +163,12 @@ DELETE FROM [dbo].[Productos]
         Public Function ProductosPedidos_Add(ByVal objProductosPedidos As ProductosPedidosE) As Integer
             Dim _query = String.Format("
 INSERT INTO [dbo].[ProductosPedidos]
-           ([ppIdProducto]
-           ,[ppIdCliente]
+           ([ppDescripcionProducto]
+           ,[ppRazonSocialCliente]
            ,[ppCantidad]
            ,[ppPrecioVenta])     
      VALUES
-           ('{0}','{1}','{2}','{3}')", objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpPrecioVenta1)
+           ('{0}','{1}','{2}','{3}')", objProductosPedidos.PpDescripcionProducto1, objProductosPedidos.PpRazonSocialCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpPrecioVenta1)
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             cnn.Close()
             Return _result
@@ -178,11 +178,11 @@ INSERT INTO [dbo].[ProductosPedidos]
             Try
                 Dim _query = String.Format("
 UPDATE [dbo].[ProductosPedidos]
-   SET [ppIdProducto] = '{1}',
-       [ppIdCliente] = '{2}',
+   SET [ppDescripcionProducto] = '{1}',
+       [ppRazonSocialCliente] = '{2}',
        [ppCantidad] = '{3}',       
        [ppPrecioVenta] = '{4}',
- WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpIdProducto1.ToString.Replace("'", "''"), objProductosPedidos.PpIdCliente1.ToString.Replace("'", "''"), objProductosPedidos.PpCantidad1.ToString.Replace("'", "''"), objProductosPedidos.PpPrecioVenta1.ToString.Replace("'", "''"))
+ WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpDescripcionProducto1.ToString.Replace("'", "''"), objProductosPedidos.PpRazonSocialCliente1.ToString.Replace("'", "''"), objProductosPedidos.PpCantidad1.ToString.Replace("'", "''"), objProductosPedidos.PpPrecioVenta1.ToString.Replace("'", "''"))
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -207,8 +207,8 @@ DELETE FROM [dbo].[ProductosPedidos]
                 Dim reader As IDataReader = CType(SqlHelper.ExecuteReader(cnn, CommandType.Text, String.Format("SELECT * FROM ProductosPedidos WHERE {0} = '{1}'", field, value)), IDataReader)
                 While reader.Read()
                     objProductosPedidos.PpId1 = CInt(reader("ppId"))
-                    objProductosPedidos.PpIdProducto1 = CInt(reader("ppIdProducto"))
-                    objProductosPedidos.PpIdCliente1 = CInt(reader("ppIdCliente"))
+                    objProductosPedidos.PpDescripcionProducto1 = reader("ppIdProducto").ToString
+                    objProductosPedidos.PpRazonSocialCliente1 = reader("ppIdCliente").ToString
                     objProductosPedidos.PpCantidad1 = CDbl(reader("ppCantidad"))
                     objProductosPedidos.PpPrecioVenta1 = CDec(reader("ppPrecioVenta"))
                 End While

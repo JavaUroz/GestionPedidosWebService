@@ -35,7 +35,7 @@ Partial Class CargaPedidos
         Me.dgvPedido = New System.Windows.Forms.DataGridView()
         Me.tbPrecioUnitario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnImprimir = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.gbTipoDestinatario = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -161,18 +161,18 @@ Partial Class CargaPedidos
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "Precio unit.:"
         '
-        'btnAceptar
+        'btnImprimir
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(424, 447)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAceptar.TabIndex = 11
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
+        Me.btnImprimir.Location = New System.Drawing.Point(505, 447)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(75, 23)
+        Me.btnImprimir.TabIndex = 11
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(505, 447)
+        Me.btnCancelar.Location = New System.Drawing.Point(13, 447)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 12
@@ -278,7 +278,7 @@ Partial Class CargaPedidos
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.gbTipoDestinatario)
         Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.btnImprimir)
         Me.Name = "CargaPedidos"
         Me.Text = "Ventas"
         CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).EndInit()
@@ -305,7 +305,7 @@ Partial Class CargaPedidos
     Friend WithEvents dgvPedido As DataGridView
     Friend WithEvents tbPrecioUnitario As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents btnAceptar As Button
+    Friend WithEvents btnImprimir As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents gbTipoDestinatario As GroupBox
     Friend WithEvents GroupBox2 As GroupBox

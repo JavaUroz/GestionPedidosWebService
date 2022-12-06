@@ -248,9 +248,9 @@ Namespace ServiceReferenceGP
         
         Private ppId1Field As Integer
         
-        Private ppIdProducto1Field As Integer
+        Private ppDescripcionProducto1Field As String
         
-        Private ppIdCliente1Field As Integer
+        Private ppRazonSocialCliente1Field As String
         
         Private ppCantidad1Field As Double
         
@@ -270,25 +270,25 @@ Namespace ServiceReferenceGP
         
         '''<remarks/>
         <System.Xml.Serialization.XmlElementAttribute(Order:=1)>  _
-        Public Property PpIdProducto1() As Integer
+        Public Property PpDescripcionProducto1() As String
             Get
-                Return Me.ppIdProducto1Field
+                Return Me.ppDescripcionProducto1Field
             End Get
             Set
-                Me.ppIdProducto1Field = value
-                Me.RaisePropertyChanged("PpIdProducto1")
+                Me.ppDescripcionProducto1Field = value
+                Me.RaisePropertyChanged("PpDescripcionProducto1")
             End Set
         End Property
         
         '''<remarks/>
         <System.Xml.Serialization.XmlElementAttribute(Order:=2)>  _
-        Public Property PpIdCliente1() As Integer
+        Public Property PpRazonSocialCliente1() As String
             Get
-                Return Me.ppIdCliente1Field
+                Return Me.ppRazonSocialCliente1Field
             End Get
             Set
-                Me.ppIdCliente1Field = value
-                Me.RaisePropertyChanged("PpIdCliente1")
+                Me.ppRazonSocialCliente1Field = value
+                Me.RaisePropertyChanged("PpRazonSocialCliente1")
             End Set
         End Property
         
