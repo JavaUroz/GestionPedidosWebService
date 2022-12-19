@@ -112,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="DGVPedidos.Designer.vb">
+      <DependentUpon>DGVPedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DGVPedidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DGVProductos.Designer.vb">
       <DependentUpon>DGVProductos.vb</DependentUpon>
     </Compile>
@@ -152,6 +158,9 @@
     <EmbeddedResource Include="CargaPedidos.resx">
       <DependentUpon>CargaPedidos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DGVPedidos.resx">
+      <DependentUpon>DGVPedidos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DGVProductos.resx">
       <DependentUpon>DGVProductos.vb</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +185,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.ProductosPedidosE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.UnidadMedidaE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos1.wsdl" />

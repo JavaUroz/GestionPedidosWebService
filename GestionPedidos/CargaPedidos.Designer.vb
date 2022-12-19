@@ -30,23 +30,15 @@ Partial Class CargaPedidos
         Me.tbCantidad = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbUnidadMedida = New System.Windows.Forms.TextBox()
-        Me.dgvPedido = New System.Windows.Forms.DataGridView()
         Me.tbPrecioUnitario = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnImprimir = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.gbTipoDestinatario = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.tbSubtotal = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnVaciar = New System.Windows.Forms.Button()
-        Me.btnQuitar = New System.Windows.Forms.Button()
-        CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbTipoDestinatario.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'cbRazonSocial
@@ -54,7 +46,7 @@ Partial Class CargaPedidos
         Me.cbRazonSocial.FormattingEnabled = True
         Me.cbRazonSocial.Location = New System.Drawing.Point(90, 17)
         Me.cbRazonSocial.Name = "cbRazonSocial"
-        Me.cbRazonSocial.Size = New System.Drawing.Size(162, 21)
+        Me.cbRazonSocial.Size = New System.Drawing.Size(298, 21)
         Me.cbRazonSocial.TabIndex = 0
         '
         'Label1
@@ -116,16 +108,6 @@ Partial Class CargaPedidos
         Me.tbUnidadMedida.Size = New System.Drawing.Size(72, 20)
         Me.tbUnidadMedida.TabIndex = 5
         '
-        'dgvPedido
-        '
-        Me.dgvPedido.AllowUserToAddRows = False
-        Me.dgvPedido.AllowUserToDeleteRows = False
-        Me.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPedido.Location = New System.Drawing.Point(15, 24)
-        Me.dgvPedido.Name = "dgvPedido"
-        Me.dgvPedido.Size = New System.Drawing.Size(528, 216)
-        Me.dgvPedido.TabIndex = 8
-        '
         'tbPrecioUnitario
         '
         Me.tbPrecioUnitario.Location = New System.Drawing.Point(343, 50)
@@ -142,24 +124,6 @@ Partial Class CargaPedidos
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "Precio unit.:"
         '
-        'btnImprimir
-        '
-        Me.btnImprimir.Location = New System.Drawing.Point(505, 447)
-        Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(75, 23)
-        Me.btnImprimir.TabIndex = 11
-        Me.btnImprimir.Text = "Imprimir"
-        Me.btnImprimir.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Location = New System.Drawing.Point(13, 447)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 12
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
         'gbTipoDestinatario
         '
         Me.gbTipoDestinatario.Controls.Add(Me.Label1)
@@ -175,7 +139,6 @@ Partial Class CargaPedidos
         '
         Me.GroupBox2.Controls.Add(Me.tbSubtotal)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.btnAgregar)
         Me.GroupBox2.Controls.Add(Me.tbPrecioUnitario)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.tbUnidadMedida)
@@ -210,62 +173,27 @@ Partial Class CargaPedidos
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(14, 55)
+        Me.btnAgregar.Location = New System.Drawing.Point(505, 154)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
         Me.btnAgregar.TabIndex = 11
         Me.btnAgregar.Text = "Cargar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.btnVaciar)
-        Me.GroupBox3.Controls.Add(Me.btnQuitar)
-        Me.GroupBox3.Controls.Add(Me.dgvPedido)
-        Me.GroupBox3.Location = New System.Drawing.Point(13, 154)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(567, 285)
-        Me.GroupBox3.TabIndex = 15
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Pedido"
-        '
-        'btnVaciar
-        '
-        Me.btnVaciar.Location = New System.Drawing.Point(468, 247)
-        Me.btnVaciar.Name = "btnVaciar"
-        Me.btnVaciar.Size = New System.Drawing.Size(75, 23)
-        Me.btnVaciar.TabIndex = 10
-        Me.btnVaciar.Text = "Vaciar"
-        Me.btnVaciar.UseVisualStyleBackColor = True
-        '
-        'btnQuitar
-        '
-        Me.btnQuitar.Enabled = False
-        Me.btnQuitar.Location = New System.Drawing.Point(15, 247)
-        Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(75, 23)
-        Me.btnQuitar.TabIndex = 9
-        Me.btnQuitar.Text = "Quitar"
-        Me.btnQuitar.UseVisualStyleBackColor = True
-        '
         'CargaPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(595, 478)
-        Me.Controls.Add(Me.GroupBox3)
+        Me.ClientSize = New System.Drawing.Size(595, 188)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.gbTipoDestinatario)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnImprimir)
         Me.Name = "CargaPedidos"
-        Me.Text = "Ventas"
-        CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Pedidos"
         Me.gbTipoDestinatario.ResumeLayout(False)
         Me.gbTipoDestinatario.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -278,17 +206,11 @@ Partial Class CargaPedidos
     Friend WithEvents tbCantidad As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents tbUnidadMedida As TextBox
-    Friend WithEvents dgvPedido As DataGridView
     Friend WithEvents tbPrecioUnitario As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents btnImprimir As Button
-    Friend WithEvents btnCancelar As Button
     Friend WithEvents gbTipoDestinatario As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents btnAgregar As Button
-    Friend WithEvents btnQuitar As Button
-    Friend WithEvents btnVaciar As Button
     Friend WithEvents tbSubtotal As TextBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents btnAgregar As Button
 End Class

@@ -2,9 +2,10 @@
     Public Class ProductosPedidosE
 #Region "Miembros"
         Private ppId As Integer
-        Private ppDescripcionProducto As String
-        Private ppRazonSocialCliente As String
+        Private ppIdProducto As Integer
+        Private ppIdCliente As Integer
         Private ppCantidad As Double
+        Private ppIdUnidadMedida As Integer
         Private ppPrecioVenta As Decimal
 #End Region
 #Region "Propiedades"
@@ -16,21 +17,21 @@
                 ppId = value
             End Set
         End Property
-        Public Property PpDescripcionProducto1 As String
+        Public Property PpIdProducto1 As Integer
             Get
-                Return ppDescripcionProducto
+                Return ppIdProducto
             End Get
-            Set(value As String)
-                ppDescripcionProducto = value
+            Set(value As Integer)
+                ppIdProducto = value
             End Set
         End Property
 
-        Public Property PpRazonSocialCliente1 As String
+        Public Property PpIdCliente1 As Integer
             Get
-                Return ppRazonSocialCliente
+                Return ppIdCliente
             End Get
-            Set(value As String)
-                ppRazonSocialCliente = value
+            Set(value As Integer)
+                ppIdCliente = value
             End Set
         End Property
 
@@ -49,6 +50,15 @@
             End Get
             Set(value As Decimal)
                 ppPrecioVenta = value
+            End Set
+        End Property
+
+        Public Property PpIdUnidadMedida1 As Integer
+            Get
+                Return ppIdUnidadMedida
+            End Get
+            Set(value As Integer)
+                ppIdUnidadMedida = value
             End Set
         End Property
 #End Region

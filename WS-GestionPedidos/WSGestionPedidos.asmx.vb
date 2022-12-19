@@ -95,9 +95,29 @@ Public Class WSGestionPedidos
 #End Region
 #Region "Unidades de medida"
     <WebMethod>
+    Public Function UnidadMedida_Agregar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Add(ObjUnidadMedida)
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_Actualizar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Update(ObjUnidadMedida)
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_ObtenerPorCampo(ByVal field As String, ByVal value As String) As UnidadMedidaE
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_GetByField(field, value)
+    End Function
+    <WebMethod>
     Public Function UnidadMedida_ObtenerTodo() As DataSet
         Dim ObjUnidadMedidaN As New UnidadMedidaN
         Return ObjUnidadMedidaN.UnidadMedidaN_GetAll()
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_Borrar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Delete(ObjUnidadMedida)
     End Function
 #End Region
 End Class
