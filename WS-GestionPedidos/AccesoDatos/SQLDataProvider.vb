@@ -88,9 +88,9 @@ INSERT INTO [dbo].[Productos]
            ,[prPrecioCompra]
            ,[prPrecioVenta]
            ,[prFechaActPrecioCompra]
-           ,[prFechaActPrecioVenta])           
+           ,[prFechaActPrecioVenta])
      VALUES
-           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrDescripcion1, objProducto.PrUnidadMedida1, objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1, objProducto.PrFechaActPrecioVenta1)
+           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.Replace("'", "''"))
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             Return _result
             cnn.Close()
@@ -106,7 +106,8 @@ UPDATE [dbo].[Productos]
        [prPrecioVenta] = '{4}',
        [prFechaActPrecioCompra] = '{5}',
        [prFechaActPrecioVenta] = '{6}'  
- WHERE prId ='{0}'", objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrPrecioVenta1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.ToString.Replace("'", "''"))
+ WHERE prId ='{0}'", objProducto.PrId1, objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.Replace("'", "''"))
+                _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -116,9 +117,9 @@ UPDATE [dbo].[Productos]
         Public Function Producto_Delete(ByVal objProducto As ProductoE) As Integer
             Dim _result = -99
             Try
-                Dim _query = String.Format("
-DELETE FROM [dbo].[Productos]
-      WHERE prId = '{0}'", objProducto.PrId1)
+                Dim _query = String.Format("DELETE FROM [dbo].[Productos]
+                                            WHERE prId = '{0}'", objProducto.PrId1)
+                _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -135,8 +136,8 @@ DELETE FROM [dbo].[Productos]
                     objProducto.PrUnidadMedida1 = reader("prUnidadMedida").ToString
                     objProducto.PrPrecioCompra1 = CDec(reader("prPrecioCompra"))
                     objProducto.PrPrecioVenta1 = CDec(reader("prPrecioVenta"))
-                    objProducto.PrFechaActPrecioCompra1 = CDate(reader("prFechaActPrecioCompra"))
-                    objProducto.PrFechaActPrecioVenta1 = CDate(reader("prFechaActPrecioVenta"))
+                    objProducto.PrFechaActPrecioCompra1 = reader("prFechaActPrecioCompra").ToString
+                    objProducto.PrFechaActPrecioVenta1 = reader("prFechaActPrecioVenta").ToString
                 End While
                 reader.Dispose()
                 cnn.Close()

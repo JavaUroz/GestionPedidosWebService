@@ -152,6 +152,10 @@ Public Class CargaPedidos
         tbSubtotal.Text = ""
     End Sub
 
+    Private Sub tbUnidadMedida_TextChanged(sender As Object, e As EventArgs) Handles tbUnidadMedida.TextChanged
+        obtenerIdUnidadMedida()
+    End Sub
+
     'Private Sub btnQuitar_Click(sender As Object, e As EventArgs)
     '    Dim FilaSeleccionada As Integer = dgvPedido.CurrentRow.Index
     '    Try

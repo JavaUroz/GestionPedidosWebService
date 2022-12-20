@@ -435,95 +435,95 @@ Namespace ServiceReferenceGP
         Private prPrecioVenta1Field As Decimal
         
         Private prPrecioCompra1Field As Decimal
-        
-        Private prFechaActPrecioVenta1Field As Date
-        
-        Private prFechaActPrecioCompra1Field As Date
-        
+
+        Private prFechaActPrecioVenta1Field As String
+
+        Private prFechaActPrecioCompra1Field As String
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=0)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=0)>
         Public Property PrId1() As Integer
             Get
                 Return Me.prId1Field
             End Get
             Set
-                Me.prId1Field = value
+                Me.prId1Field = Value
                 Me.RaisePropertyChanged("PrId1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=1)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=1)>
         Public Property PrDescripcion1() As String
             Get
                 Return Me.prDescripcion1Field
             End Get
             Set
-                Me.prDescripcion1Field = value
+                Me.prDescripcion1Field = Value
                 Me.RaisePropertyChanged("PrDescripcion1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>
         Public Property PrUnidadMedida1() As String
             Get
                 Return Me.prUnidadMedida1Field
             End Get
             Set
-                Me.prUnidadMedida1Field = value
+                Me.prUnidadMedida1Field = Value
                 Me.RaisePropertyChanged("PrUnidadMedida1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>
         Public Property PrPrecioVenta1() As Decimal
             Get
                 Return Me.prPrecioVenta1Field
             End Get
             Set
-                Me.prPrecioVenta1Field = value
+                Me.prPrecioVenta1Field = Value
                 Me.RaisePropertyChanged("PrPrecioVenta1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>  _
+        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>
         Public Property PrPrecioCompra1() As Decimal
             Get
                 Return Me.prPrecioCompra1Field
             End Get
             Set
-                Me.prPrecioCompra1Field = value
+                Me.prPrecioCompra1Field = Value
                 Me.RaisePropertyChanged("PrPrecioCompra1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>  _
-        Public Property PrFechaActPrecioVenta1() As Date
+        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>
+        Public Property PrFechaActPrecioVenta1() As String
             Get
                 Return Me.prFechaActPrecioVenta1Field
             End Get
             Set
-                Me.prFechaActPrecioVenta1Field = value
+                Me.prFechaActPrecioVenta1Field = Value
                 Me.RaisePropertyChanged("PrFechaActPrecioVenta1")
             End Set
         End Property
-        
+
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>  _
-        Public Property PrFechaActPrecioCompra1() As Date
+        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>
+        Public Property PrFechaActPrecioCompra1() As String
             Get
                 Return Me.prFechaActPrecioCompra1Field
             End Get
             Set
-                Me.prFechaActPrecioCompra1Field = value
+                Me.prFechaActPrecioCompra1Field = Value
                 Me.RaisePropertyChanged("PrFechaActPrecioCompra1")
             End Set
         End Property
-        
+
         Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
         
         Protected Sub RaisePropertyChanged(ByVal propertyName As String)

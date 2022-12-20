@@ -50,6 +50,7 @@ Partial Class DGVProductos
         '
         'dtpFechaActPrecioVenta
         '
+        Me.dtpFechaActPrecioVenta.CustomFormat = ""
         Me.dtpFechaActPrecioVenta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaActPrecioVenta.Location = New System.Drawing.Point(407, 86)
         Me.dtpFechaActPrecioVenta.Name = "dtpFechaActPrecioVenta"
@@ -76,6 +77,7 @@ Partial Class DGVProductos
         '
         'dtpFechaActPrecioCompra
         '
+        Me.dtpFechaActPrecioCompra.CustomFormat = ""
         Me.dtpFechaActPrecioCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaActPrecioCompra.Location = New System.Drawing.Point(406, 56)
         Me.dtpFechaActPrecioCompra.Name = "dtpFechaActPrecioCompra"
