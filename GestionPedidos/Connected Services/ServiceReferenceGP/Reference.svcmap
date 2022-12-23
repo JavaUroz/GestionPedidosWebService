@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:59297/WSGestionPedidos.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:58759/WSGestionPedidos.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSGestionPedidos1.wsdl" MetadataType="Wsdl" ID="0e641fd0-318f-4efd-99c3-5b9c12a55bc3" SourceId="1" SourceUrl="http://localhost:59297/WSGestionPedidos.asmx?wsdl" />
-    <MetadataFile FileName="WSGestionPedidos1.disco" MetadataType="Disco" ID="0bfc8d6c-392b-4213-9659-f3c84e1169e9" SourceId="1" SourceUrl="http://localhost:59297/WSGestionPedidos.asmx?disco" />
+    <MetadataFile FileName="WSGestionPedidos.wsdl" MetadataType="Wsdl" ID="c6540219-54a4-4d10-b022-429ceaaebe0b" SourceId="1" SourceUrl="http://localhost:58759/WSGestionPedidos.asmx?wsdl" />
+    <MetadataFile FileName="WSGestionPedidos.disco" MetadataType="Disco" ID="42347f55-6148-48e2-a9b9-a1c8ce04a713" SourceId="1" SourceUrl="http://localhost:58759/WSGestionPedidos.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

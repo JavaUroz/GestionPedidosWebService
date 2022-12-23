@@ -190,7 +190,7 @@
     <None Include="Connected Services\ServiceReferenceGP\GestionPedidos.ServiceReferenceGP.UnidadMedidaE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos1.wsdl" />
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.wsdl" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -208,9 +208,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReferenceGP\" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +221,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceGP\WSGestionPedidos.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

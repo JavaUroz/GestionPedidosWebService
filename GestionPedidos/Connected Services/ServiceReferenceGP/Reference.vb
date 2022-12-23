@@ -119,10 +119,17 @@ Namespace ServiceReferenceGP
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/ProductosPedidos_Borrar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function ProductosPedidos_Borrar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer
+        Function ProductosPedidos_Borrar(ByVal ObjProductosPedidos As ServiceReferenceGP.ProductosPedidosE) As Integer
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/ProductosPedidos_Borrar", ReplyAction:="*")>  _
-        Function ProductosPedidos_BorrarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer)
+        Function ProductosPedidos_BorrarAsync(ByVal ObjProductosPedidos As ServiceReferenceGP.ProductosPedidosE) As System.Threading.Tasks.Task(Of Integer)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Ppconsulta_ObtenerTodo", ReplyAction:="*"),  _
+         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
+        Function Ppconsulta_ObtenerTodo() As System.Data.DataSet
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Ppconsulta_ObtenerTodo", ReplyAction:="*")>  _
+        Function Ppconsulta_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/UnidadMedida_Agregar", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
@@ -332,7 +339,7 @@ Namespace ServiceReferenceGP
         
         Private ppPrecioVenta1Field As Decimal
         
-        Private ppIdUnidadMedida1Field As Integer
+        Private ppUnidadMedida1Field As String
         
         '''<remarks/>
         <System.Xml.Serialization.XmlElementAttribute(Order:=0)>  _
@@ -396,13 +403,13 @@ Namespace ServiceReferenceGP
         
         '''<remarks/>
         <System.Xml.Serialization.XmlElementAttribute(Order:=5)>  _
-        Public Property PpIdUnidadMedida1() As Integer
+        Public Property PpUnidadMedida1() As String
             Get
-                Return Me.ppIdUnidadMedida1Field
+                Return Me.ppUnidadMedida1Field
             End Get
             Set
-                Me.ppIdUnidadMedida1Field = value
-                Me.RaisePropertyChanged("PpIdUnidadMedida1")
+                Me.ppUnidadMedida1Field = value
+                Me.RaisePropertyChanged("PpUnidadMedida1")
             End Set
         End Property
         
@@ -435,95 +442,95 @@ Namespace ServiceReferenceGP
         Private prPrecioVenta1Field As Decimal
         
         Private prPrecioCompra1Field As Decimal
-
+        
         Private prFechaActPrecioVenta1Field As String
-
+        
         Private prFechaActPrecioCompra1Field As String
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=0)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=0)>  _
         Public Property PrId1() As Integer
             Get
                 Return Me.prId1Field
             End Get
             Set
-                Me.prId1Field = Value
+                Me.prId1Field = value
                 Me.RaisePropertyChanged("PrId1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=1)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=1)>  _
         Public Property PrDescripcion1() As String
             Get
                 Return Me.prDescripcion1Field
             End Get
             Set
-                Me.prDescripcion1Field = Value
+                Me.prDescripcion1Field = value
                 Me.RaisePropertyChanged("PrDescripcion1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=2)>  _
         Public Property PrUnidadMedida1() As String
             Get
                 Return Me.prUnidadMedida1Field
             End Get
             Set
-                Me.prUnidadMedida1Field = Value
+                Me.prUnidadMedida1Field = value
                 Me.RaisePropertyChanged("PrUnidadMedida1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=3)>  _
         Public Property PrPrecioVenta1() As Decimal
             Get
                 Return Me.prPrecioVenta1Field
             End Get
             Set
-                Me.prPrecioVenta1Field = Value
+                Me.prPrecioVenta1Field = value
                 Me.RaisePropertyChanged("PrPrecioVenta1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=4)>  _
         Public Property PrPrecioCompra1() As Decimal
             Get
                 Return Me.prPrecioCompra1Field
             End Get
             Set
-                Me.prPrecioCompra1Field = Value
+                Me.prPrecioCompra1Field = value
                 Me.RaisePropertyChanged("PrPrecioCompra1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=5)>  _
         Public Property PrFechaActPrecioVenta1() As String
             Get
                 Return Me.prFechaActPrecioVenta1Field
             End Get
             Set
-                Me.prFechaActPrecioVenta1Field = Value
+                Me.prFechaActPrecioVenta1Field = value
                 Me.RaisePropertyChanged("PrFechaActPrecioVenta1")
             End Set
         End Property
-
+        
         '''<remarks/>
-        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>
+        <System.Xml.Serialization.XmlElementAttribute(Order:=6)>  _
         Public Property PrFechaActPrecioCompra1() As String
             Get
                 Return Me.prFechaActPrecioCompra1Field
             End Get
             Set
-                Me.prFechaActPrecioCompra1Field = Value
+                Me.prFechaActPrecioCompra1Field = value
                 Me.RaisePropertyChanged("PrFechaActPrecioCompra1")
             End Set
         End Property
-
+        
         Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
         
         Protected Sub RaisePropertyChanged(ByVal propertyName As String)
@@ -677,12 +684,20 @@ Namespace ServiceReferenceGP
             Return MyBase.Channel.ProductosPedidos_ObtenerTodoAsync
         End Function
         
-        Public Function ProductosPedidos_Borrar(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.ProductosPedidos_Borrar
-            Return MyBase.Channel.ProductosPedidos_Borrar(ObjProducto)
+        Public Function ProductosPedidos_Borrar(ByVal ObjProductosPedidos As ServiceReferenceGP.ProductosPedidosE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.ProductosPedidos_Borrar
+            Return MyBase.Channel.ProductosPedidos_Borrar(ObjProductosPedidos)
         End Function
         
-        Public Function ProductosPedidos_BorrarAsync(ByVal ObjProducto As ServiceReferenceGP.ProductoE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.ProductosPedidos_BorrarAsync
-            Return MyBase.Channel.ProductosPedidos_BorrarAsync(ObjProducto)
+        Public Function ProductosPedidos_BorrarAsync(ByVal ObjProductosPedidos As ServiceReferenceGP.ProductosPedidosE) As System.Threading.Tasks.Task(Of Integer) Implements ServiceReferenceGP.WSGestionPedidosSoap.ProductosPedidos_BorrarAsync
+            Return MyBase.Channel.ProductosPedidos_BorrarAsync(ObjProductosPedidos)
+        End Function
+        
+        Public Function Ppconsulta_ObtenerTodo() As System.Data.DataSet Implements ServiceReferenceGP.WSGestionPedidosSoap.Ppconsulta_ObtenerTodo
+            Return MyBase.Channel.Ppconsulta_ObtenerTodo
+        End Function
+        
+        Public Function Ppconsulta_ObtenerTodoAsync() As System.Threading.Tasks.Task(Of System.Data.DataSet) Implements ServiceReferenceGP.WSGestionPedidosSoap.Ppconsulta_ObtenerTodoAsync
+            Return MyBase.Channel.Ppconsulta_ObtenerTodoAsync
         End Function
         
         Public Function UnidadMedida_Agregar(ByVal ObjUnidadMedida As ServiceReferenceGP.UnidadMedidaE) As Integer Implements ServiceReferenceGP.WSGestionPedidosSoap.UnidadMedida_Agregar

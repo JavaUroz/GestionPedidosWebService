@@ -1,12 +1,12 @@
 ﻿Namespace Entidades
-    Public Class ProductosPedidosE
+    Public Class ppConsultaE
 #Region "Miembros"
         Private ppId As Integer
-        Private ppIdProducto As Integer
-        Private ppIdCliente As Integer
+        Private clRazonSocial As String
+        Private prDescripcion As String
         Private ppCantidad As Double
         Private ppUnidadMedida As String
-        Private ppPrecioVenta As Decimal
+        Private ppPrecioTotal As Decimal
 #End Region
 #Region "Propiedades"
         Public Property PpId1 As Integer
@@ -17,21 +17,22 @@
                 ppId = value
             End Set
         End Property
-        Public Property PpIdProducto1 As Integer
+
+        Public Property ClRazonSocial1 As String
             Get
-                Return ppIdProducto
+                Return clRazonSocial
             End Get
-            Set(value As Integer)
-                ppIdProducto = value
+            Set(value As String)
+                clRazonSocial = value
             End Set
         End Property
 
-        Public Property PpIdCliente1 As Integer
+        Public Property PrDescripcion1 As String
             Get
-                Return ppIdCliente
+                Return prDescripcion
             End Get
-            Set(value As Integer)
-                ppIdCliente = value
+            Set(value As String)
+                prDescripcion = value
             End Set
         End Property
 
@@ -44,15 +45,6 @@
             End Set
         End Property
 
-        Public Property PpPrecioVenta1 As Decimal
-            Get
-                Return ppPrecioVenta
-            End Get
-            Set(value As Decimal)
-                ppPrecioVenta = value
-            End Set
-        End Property
-
         Public Property PpUnidadMedida1 As String
             Get
                 Return ppUnidadMedida
@@ -61,6 +53,17 @@
                 ppUnidadMedida = value
             End Set
         End Property
+
+        Public Property PpPrecioTotal1 As Decimal
+            Get
+                Return ppPrecioTotal
+            End Get
+            Set(value As Decimal)
+                ppPrecioTotal = value
+            End Set
+        End Property
 #End Region
     End Class
 End Namespace
+
+

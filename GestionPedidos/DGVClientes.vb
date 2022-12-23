@@ -167,7 +167,7 @@ Public Class DGVClientes
             oCliente = ws.Cliente_ObtenerPorCampo("clId", id)
             result = ws.Cliente_Borrar(oCliente)
         Catch ex As Exception
-
+            msj = MessageBox.Show(ex, MessageBoxButtons.OK)
         End Try
         Return result
     End Function

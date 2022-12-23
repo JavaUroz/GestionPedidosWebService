@@ -88,9 +88,14 @@ Public Class WSGestionPedidos
         Return ObjProductosPedidosN.ProductosPedidosN_GetAll()
     End Function
     <WebMethod>
-    Public Function ProductosPedidos_Borrar(ObjProducto As ProductoE) As Integer
-        Dim ObjProductoN As New ProductoN
-        Return ObjProductoN.ProductoN_Delete(ObjProducto)
+    Public Function ProductosPedidos_Borrar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Delete(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function Ppconsulta_ObtenerTodo() As DataSet
+        Dim ObjPpConsultaN As New ppConsultaN
+        Return ObjPpConsultaN.PpConsultaN_GetAll()
     End Function
 #End Region
 #Region "Unidades de medida"

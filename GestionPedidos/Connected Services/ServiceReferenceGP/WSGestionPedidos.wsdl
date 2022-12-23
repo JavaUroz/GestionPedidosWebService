@@ -185,7 +185,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="PpIdCliente1" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PpCantidad1" type="s:double" />
           <s:element minOccurs="1" maxOccurs="1" name="PpPrecioVenta1" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="PpIdUnidadMedida1" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PpUnidadMedida1" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="ProductosPedidos_AgregarResponse">
@@ -244,7 +244,7 @@
       <s:element name="ProductosPedidos_Borrar">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ObjProducto" type="tns:ProductoE" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjProductosPedidos" type="tns:ProductosPedidosE" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -252,6 +252,23 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ProductosPedidos_BorrarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ppconsulta_ObtenerTodo">
+        <s:complexType />
+      </s:element>
+      <s:element name="Ppconsulta_ObtenerTodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ppconsulta_ObtenerTodoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -427,6 +444,12 @@
   <wsdl:message name="ProductosPedidos_BorrarSoapOut">
     <wsdl:part name="parameters" element="tns:ProductosPedidos_BorrarResponse" />
   </wsdl:message>
+  <wsdl:message name="Ppconsulta_ObtenerTodoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ppconsulta_ObtenerTodo" />
+  </wsdl:message>
+  <wsdl:message name="Ppconsulta_ObtenerTodoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ppconsulta_ObtenerTodoResponse" />
+  </wsdl:message>
   <wsdl:message name="UnidadMedida_AgregarSoapIn">
     <wsdl:part name="parameters" element="tns:UnidadMedida_Agregar" />
   </wsdl:message>
@@ -517,6 +540,10 @@
     <wsdl:operation name="ProductosPedidos_Borrar">
       <wsdl:input message="tns:ProductosPedidos_BorrarSoapIn" />
       <wsdl:output message="tns:ProductosPedidos_BorrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <wsdl:input message="tns:Ppconsulta_ObtenerTodoSoapIn" />
+      <wsdl:output message="tns:Ppconsulta_ObtenerTodoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UnidadMedida_Agregar">
       <wsdl:input message="tns:UnidadMedida_AgregarSoapIn" />
@@ -669,6 +696,15 @@
     </wsdl:operation>
     <wsdl:operation name="ProductosPedidos_Borrar">
       <soap:operation soapAction="http://tempuri.org/ProductosPedidos_Borrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <soap:operation soapAction="http://tempuri.org/Ppconsulta_ObtenerTodo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -859,6 +895,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <soap12:operation soapAction="http://tempuri.org/Ppconsulta_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UnidadMedida_Agregar">
       <soap12:operation soapAction="http://tempuri.org/UnidadMedida_Agregar" style="document" />
       <wsdl:input>
@@ -907,10 +952,10 @@
   </wsdl:binding>
   <wsdl:service name="WSGestionPedidos">
     <wsdl:port name="WSGestionPedidosSoap" binding="tns:WSGestionPedidosSoap">
-      <soap:address location="http://localhost:59297/WSGestionPedidos.asmx" />
+      <soap:address location="http://localhost:58759/WSGestionPedidos.asmx" />
     </wsdl:port>
     <wsdl:port name="WSGestionPedidosSoap12" binding="tns:WSGestionPedidosSoap12">
-      <soap12:address location="http://localhost:59297/WSGestionPedidos.asmx" />
+      <soap12:address location="http://localhost:58759/WSGestionPedidos.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

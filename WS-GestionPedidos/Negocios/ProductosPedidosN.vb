@@ -24,6 +24,7 @@ Namespace Negocios
         Public Function ProductosPedidosN_GetAll() As DataSet
             Return oSqlDataProvider.ProductosPedidos_GetAll()
         End Function
+
     End Class
 End Namespace
 

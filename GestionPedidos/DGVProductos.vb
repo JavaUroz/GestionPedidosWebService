@@ -1,4 +1,5 @@
-﻿Imports System.Globalization
+﻿Imports System.Configuration
+Imports System.Globalization
 Imports System.IO
 Imports System.Runtime.Serialization
 Imports GestionPedidos.ServiceReferenceGP
@@ -13,6 +14,7 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
+    Dim unidadSeleccionada As String = ""
     Dim ws As New ServiceReferenceGP.WSGestionPedidosSoapClient
 
     Private Sub DGVProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,7 +38,7 @@ Public Class DGVProductos
         dtpFechaActPrecioCompra.Enabled = False
         dtpFechaActPrecioVenta.Enabled = False
         cb_UnidadMedida.Enabled = False
-
+        CargarCombos()
     End Sub
     Private Sub InicializarComponentes()
         txt_Descripcion.Text = ""
@@ -72,7 +74,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Enabled = True
         btn_Aceptar.Enabled = True
         btn_Cancelar.Enabled = True
-        CargarCombos()
+        'CargarCombos()
     End Sub
     Private Sub DesactivarControlesDGV()
         btn_Agregar.Enabled = False
@@ -83,7 +85,7 @@ Public Class DGVProductos
         btn_Agregar.Enabled = True
         btn_Modificar.Enabled = True
         btn_Eliminar.Enabled = True
-        CargarCombos()
+        'CargarCombos()
     End Sub
     Private Sub CargarCombos()
         Dim ds As New DataSet
@@ -233,6 +235,7 @@ Public Class DGVProductos
                         InicializarComponentes()
                 End Select
             Case "Modificar"
+
                 oProducto.PrId1 = idProductoSeleccionado
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim

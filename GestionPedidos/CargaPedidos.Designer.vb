@@ -36,7 +36,7 @@ Partial Class CargaPedidos
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.tbSubtotal = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.btnCargar = New System.Windows.Forms.Button()
         Me.gbTipoDestinatario.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -171,14 +171,14 @@ Partial Class CargaPedidos
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "Subtotal:"
         '
-        'btnAgregar
+        'btnCargar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(505, 154)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAgregar.TabIndex = 11
-        Me.btnAgregar.Text = "Cargar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
+        Me.btnCargar.Location = New System.Drawing.Point(505, 154)
+        Me.btnCargar.Name = "btnCargar"
+        Me.btnCargar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCargar.TabIndex = 11
+        Me.btnCargar.Text = "Cargar"
+        Me.btnCargar.UseVisualStyleBackColor = True
         '
         'CargaPedidos
         '
@@ -186,7 +186,7 @@ Partial Class CargaPedidos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(595, 188)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.btnAgregar)
+        Me.Controls.Add(Me.btnCargar)
         Me.Controls.Add(Me.gbTipoDestinatario)
         Me.Name = "CargaPedidos"
         Me.Text = "Pedidos"
@@ -212,5 +212,5 @@ Partial Class CargaPedidos
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents tbSubtotal As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents btnAgregar As Button
+    Friend WithEvents btnCargar As Button
 End Class

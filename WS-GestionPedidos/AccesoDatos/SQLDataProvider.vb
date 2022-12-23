@@ -167,9 +167,10 @@ INSERT INTO [dbo].[ProductosPedidos]
            ([ppIdProducto]
            ,[ppIdCliente]
            ,[ppCantidad]
+           ,[ppUnidadMedida]
            ,[ppPrecioVenta])     
      VALUES
-           ('{0}','{1}','{2}','{3}')", objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpPrecioVenta1)
+           ('{0}','{1}','{2}','{3}','{4}')", objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpUnidadMedida1.Replace("'", "''"), objProductosPedidos.PpPrecioVenta1)
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             cnn.Close()
             Return _result
@@ -181,9 +182,10 @@ INSERT INTO [dbo].[ProductosPedidos]
 UPDATE [dbo].[ProductosPedidos]
    SET [ppIdProducto] = '{1}',
        [ppIdCliente] = '{2}',
-       [ppCantidad] = '{3}',       
-       [ppPrecioVenta] = '{4}',
- WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpPrecioVenta1)
+       [ppCantidad] = '{3}',
+       [ppUnidadMedida] = '{4}',
+       [ppPrecioVenta] = '{5}',
+ WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpUnidadMedida1, objProductosPedidos.PpPrecioVenta1)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -211,6 +213,7 @@ DELETE FROM [dbo].[ProductosPedidos]
                     objProductosPedidos.PpIdProducto1 = CInt(reader("ppIdProducto"))
                     objProductosPedidos.PpIdCliente1 = CInt(reader("ppIdCliente"))
                     objProductosPedidos.PpCantidad1 = CDbl(reader("ppCantidad"))
+                    objProductosPedidos.PpUnidadMedida1 = reader("ppUnidadMedida").ToString
                     objProductosPedidos.PpPrecioVenta1 = CDec(reader("ppPrecioVenta"))
                 End While
                 reader.Dispose()
@@ -225,6 +228,22 @@ DELETE FROM [dbo].[ProductosPedidos]
             Dim _query As String
             Try
                 _query = String.Format("Select * FROM ProductosPedidos")
+                Dim ds As DataSet = CType(SqlHelper.ExecuteDataset(cnn, CommandType.Text, _query), DataSet)
+                Return ds
+            Catch ex As Exception
+                Console.Write(ex)
+                Return _result
+            End Try
+        End Function
+        Public Function PpConsulta_GetAll() As DataSet
+            Dim _result As DataSet = Nothing
+            Dim _query As String
+            Try
+                _query = String.Format("
+                    DECLARE	@return_value int
+                    EXEC @return_value = [dbo].[ppConsulta]
+                    SELECT 'Return Value' = @return_value
+                ")
                 Dim ds As DataSet = CType(SqlHelper.ExecuteDataset(cnn, CommandType.Text, _query), DataSet)
                 Return ds
             Catch ex As Exception

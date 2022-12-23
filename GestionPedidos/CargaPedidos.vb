@@ -75,15 +75,6 @@ Public Class CargaPedidos
         End Try
         Return idClienteSeleccionado
     End Function
-    Public Function obtenerIdUnidadMedida() As Integer
-        Try
-            oUnidadMedida = ws.UnidadMedida_ObtenerPorCampo("Codigo", tbUnidadMedida.Text)
-            idUnidadMedidaSeleccionado = oUnidadMedida.Codigo1
-        Catch ex As Exception
-            msj = MessageBox.Show("Error", ex.Message, MessageBoxButtons.OKCancel)
-        End Try
-        Return idUnidadMedidaSeleccionado
-    End Function
     Private Sub cbRazonSocial_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbRazonSocial.SelectedIndexChanged
         obtenerIdCliente()
     End Sub
@@ -119,7 +110,7 @@ Public Class CargaPedidos
         End If
     End Sub
 
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    Private Sub btnCargar_Click(sender As Object, e As EventArgs) Handles btnCargar.Click
         If tbCantidad.Text IsNot "" Then
             'Try
             '    dgvPedido.Rows.Add("", cbDescripcionProducto.Text, tbCantidad.Text, tbUnidadMedida.Text, tbSubtotal.Text)
@@ -132,12 +123,12 @@ Public Class CargaPedidos
             oProductosPedidos.PpIdCliente1 = idClienteSeleccionado
             oProductosPedidos.PpIdProducto1 = idProductoSeleccionado
             oProductosPedidos.PpCantidad1 = CDbl(tbCantidad.Text)
-            oProductosPedidos.PpIdUnidadMedida1 = idUnidadMedidaSeleccionado
+            oProductosPedidos.PpUnidadMedida1 = tbUnidadMedida.Text
             oProductosPedidos.PpPrecioVenta1 = CDec(tbPrecioUnitario.Text)
             result = ws.ProductosPedidos_Agregar(oProductosPedidos)
             Select Case result
                 Case -99 ' Error al guardar en la base de datos
-                    Utilidades.ShowBalloon(btnAgregar, "Lo siento", "No se pudo cargar el pedido", ToolTipIcon.Error)
+                    Utilidades.ShowBalloon(btnCargar, "Lo siento", "No se pudo cargar el pedido", ToolTipIcon.Error)
                     InicializarComponentes()
                 Case Else
                     msj = MessageBox.Show("Pedido cargado exitosamente!", "Ok", MessageBoxButtons.OK)
@@ -150,10 +141,6 @@ Public Class CargaPedidos
         tbUnidadMedida.Text = ""
         tbPrecioUnitario.Text = ""
         tbSubtotal.Text = ""
-    End Sub
-
-    Private Sub tbUnidadMedida_TextChanged(sender As Object, e As EventArgs) Handles tbUnidadMedida.TextChanged
-        obtenerIdUnidadMedida()
     End Sub
 
     'Private Sub btnQuitar_Click(sender As Object, e As EventArgs)

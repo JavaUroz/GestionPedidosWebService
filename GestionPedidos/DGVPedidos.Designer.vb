@@ -23,14 +23,14 @@ Partial Class DGVPedidos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvPedido = New System.Windows.Forms.DataGridView()
-        Me.btnActualizar = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnDetalles = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -43,17 +43,6 @@ Partial Class DGVPedidos
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pedidos cargados"
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.btnConsultar)
-        Me.GroupBox2.Controls.Add(Me.btnEliminar)
-        Me.GroupBox2.Controls.Add(Me.btnActualizar)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 334)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(604, 40)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        '
         'dgvPedido
         '
         Me.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -62,14 +51,25 @@ Partial Class DGVPedidos
         Me.dgvPedido.Size = New System.Drawing.Size(583, 290)
         Me.dgvPedido.TabIndex = 0
         '
-        'btnActualizar
+        'GroupBox2
         '
-        Me.btnActualizar.Location = New System.Drawing.Point(7, 10)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(91, 23)
-        Me.btnActualizar.TabIndex = 0
-        Me.btnActualizar.Text = "Actualizar"
-        Me.btnActualizar.UseVisualStyleBackColor = True
+        Me.GroupBox2.Controls.Add(Me.btnDetalles)
+        Me.GroupBox2.Controls.Add(Me.btnEliminar)
+        Me.GroupBox2.Controls.Add(Me.btnActualizar)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 334)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(604, 40)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        '
+        'btnDetalles
+        '
+        Me.btnDetalles.Location = New System.Drawing.Point(514, 10)
+        Me.btnDetalles.Name = "btnDetalles"
+        Me.btnDetalles.Size = New System.Drawing.Size(75, 23)
+        Me.btnDetalles.TabIndex = 2
+        Me.btnDetalles.Text = "Detalles"
+        Me.btnDetalles.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
@@ -80,14 +80,14 @@ Partial Class DGVPedidos
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
-        'btnConsultar
+        'btnActualizar
         '
-        Me.btnConsultar.Location = New System.Drawing.Point(514, 10)
-        Me.btnConsultar.Name = "btnConsultar"
-        Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
-        Me.btnConsultar.TabIndex = 2
-        Me.btnConsultar.Text = "Consultar"
-        Me.btnConsultar.UseVisualStyleBackColor = True
+        Me.btnActualizar.Location = New System.Drawing.Point(7, 10)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(91, 23)
+        Me.btnActualizar.TabIndex = 0
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = True
         '
         'DGVPedidos
         '
@@ -99,8 +99,8 @@ Partial Class DGVPedidos
         Me.Name = "DGVPedidos"
         Me.Text = "Consulta de pedidos"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgvPedido, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -108,7 +108,7 @@ Partial Class DGVPedidos
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents dgvPedido As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents btnConsultar As Button
+    Friend WithEvents btnDetalles As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnActualizar As Button
 End Class
