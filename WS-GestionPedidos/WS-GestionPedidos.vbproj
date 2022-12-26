@@ -98,6 +98,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="WSGestionPedidos.asmx" />
   </ItemGroup>
@@ -107,6 +108,9 @@
     <Compile Include="Entidades\ProductoE.vb" />
     <Compile Include="Entidades\ProductosPedidosE.vb" />
     <Compile Include="Entidades\UnidadMedidaE.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
