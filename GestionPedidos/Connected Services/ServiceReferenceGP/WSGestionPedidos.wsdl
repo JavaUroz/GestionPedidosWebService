@@ -100,8 +100,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="PrUnidadMedida1" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="PrPrecioVenta1" type="s:decimal" />
           <s:element minOccurs="1" maxOccurs="1" name="PrPrecioCompra1" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="PrFechaActPrecioVenta1" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="PrFechaActPrecioCompra1" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrFechaActPrecioVenta1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrFechaActPrecioCompra1" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="Producto_AgregarResponse">
@@ -171,6 +171,156 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ProductosPedidos_Agregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjProductosPedidos" type="tns:ProductosPedidosE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductosPedidosE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PpId1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpIdProducto1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpIdCliente1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpCantidad1" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PpPrecioVenta1" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PpUnidadMedida1" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProductosPedidos_AgregarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProductosPedidos_AgregarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_Actualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjProductosPedidos" type="tns:ProductosPedidosE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_ActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProductosPedidos_ActualizarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_ObtenerPorCampo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="field" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_ObtenerPorCampoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductosPedidos_ObtenerPorCampoResult" type="tns:ProductosPedidosE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_ObtenerTodo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProductosPedidos_ObtenerTodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductosPedidos_ObtenerTodoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_Borrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjProductosPedidos" type="tns:ProductosPedidosE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductosPedidos_BorrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProductosPedidos_BorrarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ppconsulta_ObtenerTodo">
+        <s:complexType />
+      </s:element>
+      <s:element name="Ppconsulta_ObtenerTodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ppconsulta_ObtenerTodoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_Agregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjUnidadMedida" type="tns:UnidadMedidaE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnidadMedidaE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripción1" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UnidadMedida_AgregarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnidadMedida_AgregarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_Actualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjUnidadMedida" type="tns:UnidadMedidaE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_ActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnidadMedida_ActualizarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_ObtenerPorCampo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="field" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_ObtenerPorCampoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnidadMedida_ObtenerPorCampoResult" type="tns:UnidadMedidaE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="UnidadMedida_ObtenerTodo">
         <s:complexType />
       </s:element>
@@ -185,6 +335,20 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_Borrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjUnidadMedida" type="tns:UnidadMedidaE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnidadMedida_BorrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnidadMedida_BorrarResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -250,11 +414,71 @@
   <wsdl:message name="Producto_BorrarSoapOut">
     <wsdl:part name="parameters" element="tns:Producto_BorrarResponse" />
   </wsdl:message>
+  <wsdl:message name="ProductosPedidos_AgregarSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_Agregar" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_AgregarSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_AgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ObtenerPorCampoSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_ObtenerPorCampo" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ObtenerPorCampoSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_ObtenerPorCampoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ObtenerTodoSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_ObtenerTodo" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_ObtenerTodoSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_ObtenerTodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_BorrarSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_Borrar" />
+  </wsdl:message>
+  <wsdl:message name="ProductosPedidos_BorrarSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductosPedidos_BorrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ppconsulta_ObtenerTodoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ppconsulta_ObtenerTodo" />
+  </wsdl:message>
+  <wsdl:message name="Ppconsulta_ObtenerTodoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ppconsulta_ObtenerTodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_AgregarSoapIn">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_Agregar" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_AgregarSoapOut">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_AgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_ActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_ActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_ObtenerPorCampoSoapIn">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_ObtenerPorCampo" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_ObtenerPorCampoSoapOut">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_ObtenerPorCampoResponse" />
+  </wsdl:message>
   <wsdl:message name="UnidadMedida_ObtenerTodoSoapIn">
     <wsdl:part name="parameters" element="tns:UnidadMedida_ObtenerTodo" />
   </wsdl:message>
   <wsdl:message name="UnidadMedida_ObtenerTodoSoapOut">
     <wsdl:part name="parameters" element="tns:UnidadMedida_ObtenerTodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_BorrarSoapIn">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_Borrar" />
+  </wsdl:message>
+  <wsdl:message name="UnidadMedida_BorrarSoapOut">
+    <wsdl:part name="parameters" element="tns:UnidadMedida_BorrarResponse" />
   </wsdl:message>
   <wsdl:portType name="WSGestionPedidosSoap">
     <wsdl:operation name="Cliente_Agregar">
@@ -297,9 +521,49 @@
       <wsdl:input message="tns:Producto_BorrarSoapIn" />
       <wsdl:output message="tns:Producto_BorrarSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Agregar">
+      <wsdl:input message="tns:ProductosPedidos_AgregarSoapIn" />
+      <wsdl:output message="tns:ProductosPedidos_AgregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Actualizar">
+      <wsdl:input message="tns:ProductosPedidos_ActualizarSoapIn" />
+      <wsdl:output message="tns:ProductosPedidos_ActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerPorCampo">
+      <wsdl:input message="tns:ProductosPedidos_ObtenerPorCampoSoapIn" />
+      <wsdl:output message="tns:ProductosPedidos_ObtenerPorCampoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerTodo">
+      <wsdl:input message="tns:ProductosPedidos_ObtenerTodoSoapIn" />
+      <wsdl:output message="tns:ProductosPedidos_ObtenerTodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Borrar">
+      <wsdl:input message="tns:ProductosPedidos_BorrarSoapIn" />
+      <wsdl:output message="tns:ProductosPedidos_BorrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <wsdl:input message="tns:Ppconsulta_ObtenerTodoSoapIn" />
+      <wsdl:output message="tns:Ppconsulta_ObtenerTodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Agregar">
+      <wsdl:input message="tns:UnidadMedida_AgregarSoapIn" />
+      <wsdl:output message="tns:UnidadMedida_AgregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Actualizar">
+      <wsdl:input message="tns:UnidadMedida_ActualizarSoapIn" />
+      <wsdl:output message="tns:UnidadMedida_ActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_ObtenerPorCampo">
+      <wsdl:input message="tns:UnidadMedida_ObtenerPorCampoSoapIn" />
+      <wsdl:output message="tns:UnidadMedida_ObtenerPorCampoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="UnidadMedida_ObtenerTodo">
       <wsdl:input message="tns:UnidadMedida_ObtenerTodoSoapIn" />
       <wsdl:output message="tns:UnidadMedida_ObtenerTodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Borrar">
+      <wsdl:input message="tns:UnidadMedida_BorrarSoapIn" />
+      <wsdl:output message="tns:UnidadMedida_BorrarSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSGestionPedidosSoap" type="tns:WSGestionPedidosSoap">
@@ -394,8 +658,98 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Agregar">
+      <soap:operation soapAction="http://tempuri.org/ProductosPedidos_Agregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Actualizar">
+      <soap:operation soapAction="http://tempuri.org/ProductosPedidos_Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerPorCampo">
+      <soap:operation soapAction="http://tempuri.org/ProductosPedidos_ObtenerPorCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerTodo">
+      <soap:operation soapAction="http://tempuri.org/ProductosPedidos_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Borrar">
+      <soap:operation soapAction="http://tempuri.org/ProductosPedidos_Borrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <soap:operation soapAction="http://tempuri.org/Ppconsulta_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Agregar">
+      <soap:operation soapAction="http://tempuri.org/UnidadMedida_Agregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Actualizar">
+      <soap:operation soapAction="http://tempuri.org/UnidadMedida_Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_ObtenerPorCampo">
+      <soap:operation soapAction="http://tempuri.org/UnidadMedida_ObtenerPorCampo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UnidadMedida_ObtenerTodo">
       <soap:operation soapAction="http://tempuri.org/UnidadMedida_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Borrar">
+      <soap:operation soapAction="http://tempuri.org/UnidadMedida_Borrar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -496,8 +850,98 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Agregar">
+      <soap12:operation soapAction="http://tempuri.org/ProductosPedidos_Agregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Actualizar">
+      <soap12:operation soapAction="http://tempuri.org/ProductosPedidos_Actualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerPorCampo">
+      <soap12:operation soapAction="http://tempuri.org/ProductosPedidos_ObtenerPorCampo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_ObtenerTodo">
+      <soap12:operation soapAction="http://tempuri.org/ProductosPedidos_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductosPedidos_Borrar">
+      <soap12:operation soapAction="http://tempuri.org/ProductosPedidos_Borrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ppconsulta_ObtenerTodo">
+      <soap12:operation soapAction="http://tempuri.org/Ppconsulta_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Agregar">
+      <soap12:operation soapAction="http://tempuri.org/UnidadMedida_Agregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Actualizar">
+      <soap12:operation soapAction="http://tempuri.org/UnidadMedida_Actualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_ObtenerPorCampo">
+      <soap12:operation soapAction="http://tempuri.org/UnidadMedida_ObtenerPorCampo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UnidadMedida_ObtenerTodo">
       <soap12:operation soapAction="http://tempuri.org/UnidadMedida_ObtenerTodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnidadMedida_Borrar">
+      <soap12:operation soapAction="http://tempuri.org/UnidadMedida_Borrar" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -508,10 +952,10 @@
   </wsdl:binding>
   <wsdl:service name="WSGestionPedidos">
     <wsdl:port name="WSGestionPedidosSoap" binding="tns:WSGestionPedidosSoap">
-      <soap:address location="http://localhost:65167/WSGestionPedidos.asmx" />
+      <soap:address location="http://localhost:58759/WSGestionPedidos.asmx" />
     </wsdl:port>
     <wsdl:port name="WSGestionPedidosSoap12" binding="tns:WSGestionPedidosSoap12">
-      <soap12:address location="http://localhost:65167/WSGestionPedidos.asmx" />
+      <soap12:address location="http://localhost:58759/WSGestionPedidos.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -6,8 +6,8 @@
         Private prUnidadMedida As String
         Private prPrecioVenta As Decimal
         Private prPrecioCompra As Decimal
-        Private prFechaActPrecioVenta As Date
-        Private prFechaActPrecioCompra As Date
+        Private prFechaActPrecioVenta As String
+        Private prFechaActPrecioCompra As String
 #End Region
 #Region "Propiedades"
         Public Property PrId1 As Integer
@@ -55,20 +55,20 @@
             End Set
         End Property
 
-        Public Property PrFechaActPrecioVenta1 As Date
+        Public Property PrFechaActPrecioVenta1 As String
             Get
                 Return prFechaActPrecioVenta
             End Get
-            Set(value As Date)
+            Set(value As String)
                 prFechaActPrecioVenta = value
             End Set
         End Property
 
-        Public Property PrFechaActPrecioCompra1 As Date
+        Public Property PrFechaActPrecioCompra1 As String
             Get
                 Return prFechaActPrecioCompra
             End Get
-            Set(value As Date)
+            Set(value As String)
                 prFechaActPrecioCompra = value
             End Set
         End Property

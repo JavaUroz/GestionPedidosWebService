@@ -5,6 +5,7 @@
         Private ppIdProducto As Integer
         Private ppIdCliente As Integer
         Private ppCantidad As Double
+        Private ppUnidadMedida As String
         Private ppPrecioVenta As Decimal
 #End Region
 #Region "Propiedades"
@@ -49,6 +50,15 @@
             End Get
             Set(value As Decimal)
                 ppPrecioVenta = value
+            End Set
+        End Property
+
+        Public Property PpUnidadMedida1 As String
+            Get
+                Return ppUnidadMedida
+            End Get
+            Set(value As String)
+                ppUnidadMedida = value
             End Set
         End Property
 #End Region

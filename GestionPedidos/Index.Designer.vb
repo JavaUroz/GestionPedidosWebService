@@ -26,6 +26,8 @@ Partial Class Index
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,10 +57,23 @@ Partial Class Index
         '
         'PedidosToolStripMenuItem
         '
+        Me.PedidosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.ConsultaToolStripMenuItem})
         Me.PedidosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.PedidosToolStripMenuItem.Name = "PedidosToolStripMenuItem"
         Me.PedidosToolStripMenuItem.Size = New System.Drawing.Size(113, 23)
         Me.PedidosToolStripMenuItem.Text = "Pedidos"
+        '
+        'VentasToolStripMenuItem
+        '
+        Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.VentasToolStripMenuItem.Text = "Carga"
+        '
+        'ConsultaToolStripMenuItem
+        '
+        Me.ConsultaToolStripMenuItem.Name = "ConsultaToolStripMenuItem"
+        Me.ConsultaToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.ConsultaToolStripMenuItem.Text = "Consulta"
         '
         'Index
         '
@@ -81,4 +96,6 @@ Partial Class Index
     Friend WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PedidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConsultaToolStripMenuItem As ToolStripMenuItem
 End Class

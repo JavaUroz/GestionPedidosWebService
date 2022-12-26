@@ -3,7 +3,9 @@
 #Region "Miembros"
         Dim Codigo As String
         Dim Descripción As String
+#End Region
 
+#Region "Propiedades"
         Public Property Codigo1 As String
             Get
                 Return Codigo
@@ -12,9 +14,6 @@
                 Codigo = value
             End Set
         End Property
-#End Region
-
-#Region "Propiedades"
         Public Property Descripción1 As String
             Get
                 Return Descripción

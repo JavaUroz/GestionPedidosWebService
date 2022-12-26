@@ -88,9 +88,9 @@ INSERT INTO [dbo].[Productos]
            ,[prPrecioCompra]
            ,[prPrecioVenta]
            ,[prFechaActPrecioCompra]
-           ,[prFechaActPrecioVenta])           
+           ,[prFechaActPrecioVenta])
      VALUES
-           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrDescripcion1, objProducto.PrUnidadMedida1, objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1, objProducto.PrFechaActPrecioVenta1)
+           ('{0}','{1}','{2}','{3}','{4}','{5}')", objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.Replace("'", "''"))
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             Return _result
             cnn.Close()
@@ -106,7 +106,8 @@ UPDATE [dbo].[Productos]
        [prPrecioVenta] = '{4}',
        [prFechaActPrecioCompra] = '{5}',
        [prFechaActPrecioVenta] = '{6}'  
- WHERE prId ='{0}'", objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrPrecioVenta1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioCompra1.ToString.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.ToString.Replace("'", "''"))
+ WHERE prId ='{0}'", objProducto.PrId1, objProducto.PrDescripcion1.Replace("'", "''"), objProducto.PrUnidadMedida1.Replace("'", "''"), objProducto.PrPrecioCompra1, objProducto.PrPrecioVenta1, objProducto.PrFechaActPrecioCompra1.Replace("'", "''"), objProducto.PrFechaActPrecioVenta1.Replace("'", "''"))
+                _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -116,9 +117,9 @@ UPDATE [dbo].[Productos]
         Public Function Producto_Delete(ByVal objProducto As ProductoE) As Integer
             Dim _result = -99
             Try
-                Dim _query = String.Format("
-DELETE FROM [dbo].[Productos]
-      WHERE clId = '{0}'", objProducto.PrId1)
+                Dim _query = String.Format("DELETE FROM [dbo].[Productos]
+                                            WHERE prId = '{0}'", objProducto.PrId1)
+                _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -135,8 +136,8 @@ DELETE FROM [dbo].[Productos]
                     objProducto.PrUnidadMedida1 = reader("prUnidadMedida").ToString
                     objProducto.PrPrecioCompra1 = CDec(reader("prPrecioCompra"))
                     objProducto.PrPrecioVenta1 = CDec(reader("prPrecioVenta"))
-                    objProducto.PrFechaActPrecioCompra1 = CDate(reader("prFechaActPrecioCompra"))
-                    objProducto.PrFechaActPrecioVenta1 = CDate(reader("prFechaActPrecioVenta"))
+                    objProducto.PrFechaActPrecioCompra1 = reader("prFechaActPrecioCompra").ToString
+                    objProducto.PrFechaActPrecioVenta1 = reader("prFechaActPrecioVenta").ToString
                 End While
                 reader.Dispose()
                 cnn.Close()
@@ -166,9 +167,10 @@ INSERT INTO [dbo].[ProductosPedidos]
            ([ppIdProducto]
            ,[ppIdCliente]
            ,[ppCantidad]
+           ,[ppUnidadMedida]
            ,[ppPrecioVenta])     
      VALUES
-           ('{0}','{1}','{2}','{3}')", objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpPrecioVenta1)
+           ('{0}','{1}','{2}','{3}','{4}')", objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpUnidadMedida1.Replace("'", "''"), objProductosPedidos.PpPrecioVenta1)
             Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
             cnn.Close()
             Return _result
@@ -180,9 +182,10 @@ INSERT INTO [dbo].[ProductosPedidos]
 UPDATE [dbo].[ProductosPedidos]
    SET [ppIdProducto] = '{1}',
        [ppIdCliente] = '{2}',
-       [ppCantidad] = '{3}',       
-       [ppPrecioVenta] = '{4}',
- WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpIdProducto1.ToString.Replace("'", "''"), objProductosPedidos.PpIdCliente1.ToString.Replace("'", "''"), objProductosPedidos.PpCantidad1.ToString.Replace("'", "''"), objProductosPedidos.PpPrecioVenta1.ToString.Replace("'", "''"))
+       [ppCantidad] = '{3}',
+       [ppUnidadMedida] = '{4}',
+       [ppPrecioVenta] = '{5}',
+ WHERE ppId ='{0}'", objProductosPedidos.PpId1, objProductosPedidos.PpIdProducto1, objProductosPedidos.PpIdCliente1, objProductosPedidos.PpCantidad1, objProductosPedidos.PpUnidadMedida1, objProductosPedidos.PpPrecioVenta1)
                 cnn.Close()
             Catch ex As Exception
                 Console.Write(ex)
@@ -210,6 +213,7 @@ DELETE FROM [dbo].[ProductosPedidos]
                     objProductosPedidos.PpIdProducto1 = CInt(reader("ppIdProducto"))
                     objProductosPedidos.PpIdCliente1 = CInt(reader("ppIdCliente"))
                     objProductosPedidos.PpCantidad1 = CDbl(reader("ppCantidad"))
+                    objProductosPedidos.PpUnidadMedida1 = reader("ppUnidadMedida").ToString
                     objProductosPedidos.PpPrecioVenta1 = CDec(reader("ppPrecioVenta"))
                 End While
                 reader.Dispose()
@@ -219,8 +223,86 @@ DELETE FROM [dbo].[ProductosPedidos]
             End Try
             Return objProductosPedidos
         End Function
+        Public Function ProductosPedidos_GetAll() As DataSet
+            Dim _result As DataSet = Nothing
+            Dim _query As String
+            Try
+                _query = String.Format("Select * FROM ProductosPedidos")
+                Dim ds As DataSet = CType(SqlHelper.ExecuteDataset(cnn, CommandType.Text, _query), DataSet)
+                Return ds
+            Catch ex As Exception
+                Console.Write(ex)
+                Return _result
+            End Try
+        End Function
+        Public Function PpConsulta_GetAll() As DataSet
+            Dim _result As DataSet = Nothing
+            Dim _query As String
+            Try
+                _query = String.Format("
+                    DECLARE	@return_value int
+                    EXEC @return_value = [dbo].[ppConsulta]
+                    SELECT 'Return Value' = @return_value
+                ")
+                Dim ds As DataSet = CType(SqlHelper.ExecuteDataset(cnn, CommandType.Text, _query), DataSet)
+                Return ds
+            Catch ex As Exception
+                Console.Write(ex)
+                Return _result
+            End Try
+        End Function
 #End Region
 #Region "Unidades de medida"
+        Public Function UnidadMedida_Add(ByVal objUnidadMedida As UnidadMedidaE) As Integer
+            Dim _query = String.Format("
+INSERT INTO [dbo].[UnidadesMedida]
+           ([Descripción])     
+     VALUES
+           ('{0}')", objUnidadMedida.Descripción1)
+            Dim _result = SqlHelper.ExecuteNonQuery(cnn, CommandType.Text, _query)
+            cnn.Close()
+            Return _result
+        End Function
+        Public Function UnidadMedida_Update(ByVal objUnidadMedida As UnidadMedidaE) As Integer
+            Dim _result = -99
+            Try
+                Dim _query = String.Format("
+UPDATE [dbo].[UnidadesMedida]
+   SET [Descripción] = '{1}',
+ WHERE Codigo ='{0}'", objUnidadMedida.Codigo1.ToString.Replace("'", "''"), objUnidadMedida.Descripción1.ToString.Replace("'", "''"))
+                cnn.Close()
+            Catch ex As Exception
+                Console.Write(ex)
+            End Try
+            Return _result
+        End Function
+        Public Function UnidadMedida_Delete(ByVal objUnidadMedida As UnidadMedidaE) As Integer
+            Dim _result = -99
+            Try
+                Dim _query = String.Format("
+DELETE FROM [dbo].[UnidadesMedida]
+      WHERE Codigo = '{0}'", objUnidadMedida.Codigo1)
+                cnn.Close()
+            Catch ex As Exception
+                Console.Write(ex)
+            End Try
+            Return _result
+        End Function
+        Public Function UnidadMedida_GetByField(ByVal field As String, ByVal value As String) As UnidadMedidaE
+            Dim objUnidadMedida As New UnidadMedidaE
+            Try
+                Dim reader As IDataReader = CType(SqlHelper.ExecuteReader(cnn, CommandType.Text, String.Format("SELECT * FROM UnidadesMedida WHERE {0} = '{1}'", field, value)), IDataReader)
+                While reader.Read()
+                    objUnidadMedida.Codigo1 = reader("Codigo").ToString
+                    objUnidadMedida.Descripción1 = reader("Descripción").ToString
+                End While
+                reader.Dispose()
+                cnn.Close()
+            Catch ex As Exception
+                Console.Write(ex)
+            End Try
+            Return objUnidadMedida
+        End Function
         Public Function UnidadMedida_GetAll() As DataSet
             Dim _result As DataSet = Nothing
             Dim _query As String

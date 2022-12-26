@@ -67,13 +67,62 @@ Public Class WSGestionPedidos
     End Function
 #End Region
 #Region "Productos pedidos"
-
+    <WebMethod>
+    Public Function ProductosPedidos_Agregar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Add(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_Actualizar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Update(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_ObtenerPorCampo(ByVal field As String, ByVal value As String) As ProductosPedidosE
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_GetByField(field, value)
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_ObtenerTodo() As DataSet
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_GetAll()
+    End Function
+    <WebMethod>
+    Public Function ProductosPedidos_Borrar(ObjProductosPedidos As ProductosPedidosE) As Integer
+        Dim ObjProductosPedidosN As New ProductosPedidosN
+        Return ObjProductosPedidosN.ProductosPedidosN_Delete(ObjProductosPedidos)
+    End Function
+    <WebMethod>
+    Public Function Ppconsulta_ObtenerTodo() As DataSet
+        Dim ObjPpConsultaN As New ppConsultaN
+        Return ObjPpConsultaN.PpConsultaN_GetAll()
+    End Function
 #End Region
 #Region "Unidades de medida"
+    <WebMethod>
+    Public Function UnidadMedida_Agregar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Add(ObjUnidadMedida)
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_Actualizar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Update(ObjUnidadMedida)
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_ObtenerPorCampo(ByVal field As String, ByVal value As String) As UnidadMedidaE
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_GetByField(field, value)
+    End Function
     <WebMethod>
     Public Function UnidadMedida_ObtenerTodo() As DataSet
         Dim ObjUnidadMedidaN As New UnidadMedidaN
         Return ObjUnidadMedidaN.UnidadMedidaN_GetAll()
+    End Function
+    <WebMethod>
+    Public Function UnidadMedida_Borrar(ObjUnidadMedida As UnidadMedidaE) As Integer
+        Dim ObjUnidadMedidaN As New UnidadMedidaN
+        Return ObjUnidadMedidaN.UnidadMedidaN_Delete(ObjUnidadMedida)
     End Function
 #End Region
 End Class

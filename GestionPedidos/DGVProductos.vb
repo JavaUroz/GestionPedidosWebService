@@ -1,4 +1,5 @@
-﻿Imports System.Globalization
+﻿Imports System.Configuration
+Imports System.Globalization
 Imports System.IO
 Imports System.Runtime.Serialization
 Imports GestionPedidos.ServiceReferenceGP
@@ -13,6 +14,7 @@ Public Class DGVProductos
     Dim posicionEnGrilla As Integer = 0
     Dim idProductoSeleccionado = 0
     Dim buttonClickedConsulta As String = ""
+    Dim unidadSeleccionada As String = ""
     Dim ws As New ServiceReferenceGP.WSGestionPedidosSoapClient
 
     Private Sub DGVProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,13 +23,22 @@ Public Class DGVProductos
         dgv_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv_Productos.RowHeadersVisible = False
         dgv_Productos.Columns(0).HeaderText = "Código"
-        dgv_Productos.Columns(1).HeaderText = "Descipción"
+        dgv_Productos.Columns(1).HeaderText = "Descripción"
         dgv_Productos.Columns(2).HeaderText = "U.M."
         dgv_Productos.Columns(3).HeaderText = "Precio Venta"
         dgv_Productos.Columns(4).HeaderText = "Precio Compra"
         dgv_Productos.Columns(5).Visible = False
         dgv_Productos.Columns(6).Visible = False
-
+        txt_Descripcion.Enabled = False
+        txt_PrecioCompra.Enabled = False
+        txt_PrecioVenta.Enabled = False
+        btn_Aceptar.Enabled = False
+        btn_Cancelar.Enabled = False
+        btn_Eliminar.Enabled = False
+        dtpFechaActPrecioCompra.Enabled = False
+        dtpFechaActPrecioVenta.Enabled = False
+        cb_UnidadMedida.Enabled = False
+        CargarCombos()
     End Sub
     Private Sub InicializarComponentes()
         txt_Descripcion.Text = ""
@@ -63,7 +74,7 @@ Public Class DGVProductos
         dtpFechaActPrecioVenta.Enabled = True
         btn_Aceptar.Enabled = True
         btn_Cancelar.Enabled = True
-        CargarCombos()
+        'CargarCombos()
     End Sub
     Private Sub DesactivarControlesDGV()
         btn_Agregar.Enabled = False
@@ -74,7 +85,7 @@ Public Class DGVProductos
         btn_Agregar.Enabled = True
         btn_Modificar.Enabled = True
         btn_Eliminar.Enabled = True
-        CargarCombos()
+        'CargarCombos()
     End Sub
     Private Sub CargarCombos()
         Dim ds As New DataSet
@@ -188,7 +199,7 @@ Public Class DGVProductos
 
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
         If dgv_Productos.CurrentRow IsNot Nothing Then
-            If (MessageBox.Show("¿Desea eliminar el producto " & dgv_Productos.Rows(dgv_Productos.CurrentRow.Index).Cells("prCodigo").Value.ToString & " - " & dgv_Productos.Rows(dgv_Productos.CurrentRow.Index).Cells("prDescripcion").Value.ToString & "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes) Then
+            If (MessageBox.Show("¿Desea eliminar el producto " & dgv_Productos.Rows(dgv_Productos.CurrentRow.Index).Cells("prId").Value.ToString & " - " & dgv_Productos.Rows(dgv_Productos.CurrentRow.Index).Cells("prDescripcion").Value.ToString & "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.Yes) Then
                 ''No es necesario quitar la fila ya que se quita sola al presionar Delete
                 ''DataGridView1.Rows.RemoveAt(DataGridView1.CurrentRow.Index)
                 Producto_Borrar(idProductoSeleccionado)
@@ -208,13 +219,12 @@ Public Class DGVProductos
                     InicializarComponentes()
                     Return
                 End If
-
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim
                 oProducto.PrPrecioVenta1 = txt_PrecioVenta.Text.Trim
-                'oProducto.PrFechaActPrecioCompra1 = Convert.ToDateTime(dtpFechaActPrecioCompra.Value.Date().ToString)
-                'oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.ToString("d", CultureInfo.CreateSpecificCulture("en-EN"))
+                oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Value.ToString("yyyy-MM-dd")
+                oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.ToString("yyyy-MM-dd")
                 result = ws.Producto_Agregar(oProducto)
                 Select Case result
                     Case -99 ' Error al guardar en la base de datos
@@ -225,6 +235,7 @@ Public Class DGVProductos
                         InicializarComponentes()
                 End Select
             Case "Modificar"
+
                 oProducto.PrId1 = idProductoSeleccionado
                 oProducto.PrDescripcion1 = txt_Descripcion.Text.Trim
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
@@ -246,7 +257,7 @@ Public Class DGVProductos
     End Sub
     Public Function Producto_Borrar(ByVal codigo As Integer) As Integer
         Try
-            oProducto = ws.Producto_ObtenerPorCampo("prCodigo", codigo)
+            oProducto = ws.Producto_ObtenerPorCampo("prId", codigo)
             result = ws.Producto_Borrar(oProducto)
         Catch ex As Exception
 
@@ -260,9 +271,11 @@ Public Class DGVProductos
     End Sub
     Private Sub dgv_Productos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_Productos.CellClick
         posicionEnGrilla = e.RowIndex
+        btn_Eliminar.Enabled = True
         idProductoSeleccionado = CInt(dgv_Productos.Rows(posicionEnGrilla).Cells(0).Value)
     End Sub
     Private Sub dgv_Productos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_Productos.CellDoubleClick
+        buttonClickedConsulta = "Modificar"
         ActivarControlesProducto()
         DesactivarControlesDGV()
         If e.RowIndex >= 0 And e.ColumnIndex >= 0 Then

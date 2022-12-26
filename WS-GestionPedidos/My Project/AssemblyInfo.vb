@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyright("Copyright ©  2022")>
 <Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)>
 
 'El siguiente GUID es para el Id. typelib cuando este proyecto esté expuesto a COM
 <Assembly: Guid("de860835-5aa1-4b52-a020-1edc53c44d51")>

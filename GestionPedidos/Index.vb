@@ -12,9 +12,8 @@
             End If
         Next
         Dim childForm As New DGVClientes
-        childForm.Text = "Clientes"
         childForm.MdiParent = Me
-        childForm.Dock = DockStyle.Fill
+        childForm.Dock = DockStyle.None
         childForm.Show()
     End Sub
 
@@ -27,9 +26,37 @@
             End If
         Next
         Dim childForm As New DGVProductos
-        childForm.Text = "Productos"
         childForm.MdiParent = Me
-        childForm.Dock = DockStyle.Fill
+        childForm.Dock = DockStyle.None
+        childForm.Show()
+    End Sub
+
+    Private Sub VentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasToolStripMenuItem.Click
+        Dim f As Form
+        For Each f In Me.MdiChildren
+            If (f.Text = "Carga") Then
+                f.BringToFront()
+                Return
+            End If
+        Next
+        Dim childForm As New CargaPedidos
+        childForm.gbTipoDestinatario.Text = "Cliente"
+        childForm.MdiParent = Me
+        childForm.Dock = DockStyle.None
+        childForm.Show()
+    End Sub
+
+    Private Sub ConsultaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultaToolStripMenuItem.Click
+        Dim f As Form
+        For Each f In Me.MdiChildren
+            If (f.Text = "Consulta de pedidos") Then
+                f.BringToFront()
+                Return
+            End If
+        Next
+        Dim childForm As New DGVPedidos
+        childForm.MdiParent = Me
+        childForm.Dock = DockStyle.None
         childForm.Show()
     End Sub
 End Class
