@@ -213,18 +213,8 @@ Public Class DGVProductos
                 oProducto.PrUnidadMedida1 = cb_UnidadMedida.Text.Trim
                 oProducto.PrPrecioCompra1 = txt_PrecioCompra.Text.Trim
                 oProducto.PrPrecioVenta1 = txt_PrecioVenta.Text.Trim
-                Try
-                    oProducto.PrFechaActPrecioCompra1 = dtpFechaActPrecioCompra.Value.Date.ToShortDateString
-                Catch ex As Exception
-                    oProducto.PrFechaActPrecioCompra1 = "1900-11-31"
-                End Try
-                Try
-                    oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.Date.ToShortDateString
-                Catch ex As Exception
-                    oProducto.PrFechaActPrecioVenta1 = "1900-11-31"
-                End Try
-
-
+                'oProducto.PrFechaActPrecioCompra1 = Convert.ToDateTime(dtpFechaActPrecioCompra.Value.Date().ToString)
+                'oProducto.PrFechaActPrecioVenta1 = dtpFechaActPrecioVenta.Value.ToString("d", CultureInfo.CreateSpecificCulture("en-EN"))
                 result = ws.Producto_Agregar(oProducto)
                 Select Case result
                     Case -99 ' Error al guardar en la base de datos
